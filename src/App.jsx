@@ -58,7 +58,7 @@ const faqData = [
   },
   {
     q: '予約はどうすればいいですか？',
-    a: '完全予約制です。InstagramのDM（@sio_grooming）またはお電話（070-2011-4742）にてご予約ください。',
+    a: '完全予約制です。LINE（https://lin.ee/6y99Pzi）またはお電話（070-2011-4742）にてご予約ください。',
   },
   {
     q: '営業日を教えてください。',
@@ -133,7 +133,7 @@ export default function App() {
           <a href="#menu">トリミング</a>
           <a href="#gallery">ギャラリー</a>
           <a href="#faq">よくある質問</a>
-          <a href="#access" className="btn-reserve">ご予約はこちら</a>
+          <a href="https://lin.ee/6y99Pzi" target="_blank" rel="noopener noreferrer" className="btn-reserve">ご予約はこちら</a>
         </nav>
       </header>
 
@@ -145,7 +145,7 @@ export default function App() {
             alt="Sio grooming やさしく かわいく このこらしく、"
             className="hero-logo-msg"
           />
-          <a href="#access" className="hero-cta">
+          <a href="https://lin.ee/6y99Pzi" target="_blank" rel="noopener noreferrer" className="hero-cta">
             <img src="/画像/ご予約はこちら.png" alt="ご予約はこちら" />
           </a>
           <div className="hero-snav">
@@ -437,18 +437,16 @@ export default function App() {
               <h4>ご予約方法（完全予約制）</h4>
               <div className="reserve-method">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7B4A1E" strokeWidth="1.8">
-                  <rect x="2" y="2" width="20" height="20" rx="5" />
-                  <circle cx="12" cy="12" r="5" />
-                  <circle cx="17.5" cy="6.5" r="1.5" fill="#7B4A1E" stroke="none" />
+                  <path d="M21 11.5C21 16.19 16.97 20 12 20c-.93 0-1.83-.12-2.68-.35L4 21l1.26-4.24A8.47 8.47 0 013 11.5C3 6.81 7.03 3 12 3s9 3.81 9 8.5z" />
                 </svg>
-                Instagram DM：
+                LINE：
                 <a
-                  href="https://www.instagram.com/sio_grooming"
+                  href="https://lin.ee/6y99Pzi"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ color: 'var(--brown)', textDecoration: 'underline' }}
                 >
-                  @sio_grooming
+                  友だち追加してご予約ください
                 </a>
               </div>
               <div className="reserve-method">
