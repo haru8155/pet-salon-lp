@@ -1,50 +1,87 @@
 import { useState, useEffect } from 'react'
 
-const priceData = [
-  { breed: 'スムースチワワ', shampoo: '¥5,000', cut: null },
-  { breed: 'ロングチワワ', shampoo: '¥5,500', cut: '¥7,500' },
-  { breed: 'スムースダックス', shampoo: '¥5,500', cut: null },
-  { breed: 'ロングダックス', shampoo: '¥6,000', cut: '¥8,000' },
-  { breed: 'フレンチブルドッグ', shampoo: '¥5,500', cut: null },
-  { breed: 'ボストンテリア', shampoo: '¥5,500', cut: null },
-  { breed: 'イタリアングレイハウンド', shampoo: '¥5,500', cut: null },
-  { breed: 'ミニチュアピンシャー', shampoo: '¥5,500', cut: null },
-  { breed: 'パグ', shampoo: '¥6,000', cut: null },
-  { breed: 'パピヨン', shampoo: '¥6,000', cut: '¥8,000' },
-  { breed: 'ペキニーズ', shampoo: '¥6,000', cut: '¥8,000' },
-  { breed: 'ポメラニアン', shampoo: '¥6,300', cut: '¥8,300' },
-  { breed: 'ヨークシャーテリア', shampoo: '¥6,300', cut: '¥8,800' },
-  { breed: 'マルチーズ', shampoo: '¥6,300', cut: '¥8,800' },
-  { breed: 'ジャックラッセルテリア', shampoo: '¥6,300', cut: '¥8,800' },
-  { breed: 'ウエスティ', shampoo: '¥6,500', cut: '¥9,000' },
-  { breed: 'シーズー', shampoo: '¥6,500', cut: '¥9,000' },
-  { breed: 'トイプードル', shampoo: '¥6,500', cut: '¥9,000' },
-  { breed: 'ミニチュアシュナウザー', shampoo: '¥7,000', cut: '¥9,500' },
-  { breed: 'ビションフリーゼ', shampoo: '¥7,500', cut: '¥10,500' },
-  { breed: 'アメリカンコッカースパニエル', shampoo: '¥8,000', cut: '¥11,000' },
-  { breed: '柴', shampoo: '¥8,000', cut: null },
-  { breed: 'キャバリア', shampoo: '¥7,000', cut: '¥9,000' },
+const priceCategoryData = [
+  {
+    category: '小型犬',
+    breeds: [
+      { breed: 'スムースチワワ', shampoo: '¥5,000', cut: null },
+      { breed: 'ロングチワワ', shampoo: '¥5,500', cut: '¥7,500' },
+      { breed: 'スムースダックス', shampoo: '¥5,500', cut: null },
+      { breed: 'ロングダックス', shampoo: '¥6,000', cut: '¥8,000' },
+      { breed: 'フレンチブルドッグ', shampoo: '¥5,500', cut: null },
+      { breed: 'ボストンテリア', shampoo: '¥5,500', cut: null },
+      { breed: 'イタリアングレイハウンド', shampoo: '¥5,500', cut: null },
+      { breed: 'ミニチュアピンシャー', shampoo: '¥5,500', cut: null },
+      { breed: 'パグ', shampoo: '¥6,000', cut: null },
+      { breed: 'パピヨン', shampoo: '¥6,000', cut: '¥8,000' },
+      { breed: 'ペキニーズ', shampoo: '¥6,000', cut: '¥8,000' },
+      { breed: 'ポメラニアン', shampoo: '¥6,300', cut: '¥8,300' },
+      { breed: 'ヨークシャーテリア', shampoo: '¥6,300', cut: '¥8,800' },
+      { breed: 'マルチーズ', shampoo: '¥6,300', cut: '¥8,800' },
+      { breed: 'ジャックラッセルテリア', shampoo: '¥6,300', cut: '¥8,800' },
+      { breed: 'ウエスティ', shampoo: '¥6,500', cut: '¥9,000' },
+      { breed: 'シーズー', shampoo: '¥6,500', cut: '¥9,000' },
+      { breed: 'トイプードル', shampoo: '¥6,500', cut: '¥9,000' },
+      { breed: 'ミニチュアシュナウザー', shampoo: '¥7,000', cut: '¥9,500' },
+    ],
+  },
+  {
+    category: '中型犬',
+    breeds: [
+      { breed: 'キャバリア', shampoo: '¥7,000', cut: '¥9,000' },
+      { breed: 'ビションフリーゼ', shampoo: '¥7,500', cut: '¥10,500' },
+      { breed: 'アメリカンコッカースパニエル', shampoo: '¥8,000', cut: '¥11,000' },
+      { breed: '柴', shampoo: '¥8,000', cut: null },
+    ],
+  },
+  {
+    category: 'その他・要相談',
+    note: '上記に記載のない犬種はお問い合わせください。',
+    breeds: [],
+  },
 ]
 
-const optionData = [
-  { name: '香りボリュームシャンプー', price: '＋¥500' },
-  { name: '低刺激シャンプー', price: '＋¥500' },
-  { name: 'りんご泡温浴', price: '＋¥700' },
-  { name: 'シルク泡パック', price: '＋¥1,500' },
-  { name: 'はみがき', price: '＋¥700' },
-  { name: 'ヒゲカット', price: '＋¥500' },
-  { name: '足先バリカン', price: '＋¥500' },
-  { name: 'デザインカット', price: '＋¥1,000〜' },
-  { name: 'オールシザー', price: '＋¥1,500〜' },
-]
-
-const plusData = [
-  { name: 'マナーパンツ（1枚）', price: '＋¥100' },
-  { name: '毛玉', price: '＋¥500〜' },
-  { name: 'もつれ', price: '＋¥500〜' },
-  { name: 'サイズ', price: '＋¥500〜' },
-  { name: '毛量', price: '＋¥500〜' },
-  { name: '保定', price: '＋¥500〜' },
+const optionCategoryData = [
+  {
+    category: '被毛・スキンケア',
+    items: [
+      { name: '香りボリュームシャンプー', price: '＋¥500' },
+      { name: '低刺激シャンプー', price: '＋¥500' },
+      { name: 'りんご泡温浴', price: '＋¥700' },
+      { name: 'シルク泡パック', price: '＋¥1,500' },
+    ],
+  },
+  {
+    category: '基本ケア',
+    items: [
+      { name: 'はみがき', price: '＋¥700' },
+    ],
+  },
+  {
+    category: 'カット・仕上げ',
+    items: [
+      { name: 'ヒゲカット', price: '＋¥500' },
+      { name: '足先バリカン', price: '＋¥500' },
+      { name: 'デザインカット', price: '＋¥1,000〜' },
+      { name: 'オールシザー', price: '＋¥1,500〜' },
+    ],
+  },
+  {
+    category: '状態別の追加料金',
+    items: [
+      { name: '毛玉', price: '＋¥500〜' },
+      { name: 'もつれ', price: '＋¥500〜' },
+      { name: 'サイズ', price: '＋¥500〜' },
+      { name: '毛量', price: '＋¥500〜' },
+      { name: '保定', price: '＋¥500〜' },
+    ],
+  },
+  {
+    category: 'その他オプション',
+    items: [
+      { name: 'マナーパンツ（1枚）', price: '＋¥100' },
+    ],
+  },
 ]
 
 const faqData = [
@@ -90,9 +127,17 @@ const GalleryIcon = () => (
   </svg>
 )
 
+const Chevron = ({ className }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M6 9l6 6 6-6" />
+  </svg>
+)
+
 export default function App() {
   const [scrolled, setScrolled] = useState(false)
   const [openFaq, setOpenFaq] = useState(null)
+  const [openPriceCat, setOpenPriceCat] = useState(null)
+  const [openOptionCat, setOpenOptionCat] = useState(null)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60)
@@ -117,6 +162,8 @@ export default function App() {
   }, [])
 
   const toggleFaq = i => setOpenFaq(prev => (prev === i ? null : i))
+  const togglePriceCat = i => setOpenPriceCat(prev => (prev === i ? null : i))
+  const toggleOptionCat = i => setOpenOptionCat(prev => (prev === i ? null : i))
 
   return (
     <>
@@ -293,10 +340,12 @@ export default function App() {
           <span className="section-title-jp">トリミング・料金表</span>
         </div>
         <div className="menu-inner">
+
           <div className="menu-note reveal">
             ✦ 全てのシャンプーにウルトラファインバブルシャワーが標準でついています　✦ 全て税込価格
           </div>
 
+          {/* ベースメニュー */}
           <h3 className="menu-subtitle reveal">ベースメニュー</h3>
           <div className="reveal">
             <table className="price-table" style={{ marginBottom: '12px' }}>
@@ -319,52 +368,76 @@ export default function App() {
             </table>
           </div>
 
+          {/* 犬種別料金表 */}
           <h3 className="menu-subtitle reveal">犬種別料金表</h3>
-          <div className="reveal" style={{ overflowX: 'auto' }}>
-            <table className="price-table">
-              <thead>
-                <tr>
-                  <th>犬種</th>
-                  <th>シャンプーセット</th>
-                  <th>シャンプーカット</th>
-                </tr>
-              </thead>
-              <tbody>
-                {priceData.map((row, i) => (
-                  <tr key={i}>
-                    <td>{row.breed}</td>
-                    <td className="price-num">{row.shampoo}</td>
-                    {row.cut ? (
-                      <td className="price-num">{row.cut}</td>
-                    ) : (
-                      <td className="price-dash">—</td>
-                    )}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <p className="menu-small-note">※ 上記に記載のない犬種はお問い合わせください。</p>
-          </div>
-
-          <h3 className="menu-subtitle reveal">オプション</h3>
-          <div className="option-grid reveal">
-            {optionData.map((item, i) => (
-              <div className="option-item" key={i}>
-                <span className="option-name">{item.name}</span>
-                <span className="option-price">{item.price}</span>
+          <div className="menu-accordion reveal">
+            {priceCategoryData.map((cat, i) => (
+              <div key={i} className={`menu-acc-item${openPriceCat === i ? ' open' : ''}`}>
+                <button className="menu-acc-btn" onClick={() => togglePriceCat(i)}>
+                  <span className="menu-acc-label">{cat.category}</span>
+                  {cat.breeds.length > 0 && (
+                    <span className="menu-acc-count">{cat.breeds.length}犬種</span>
+                  )}
+                  <Chevron className="menu-acc-chevron" />
+                </button>
+                <div className="menu-acc-body">
+                  {cat.breeds.length > 0 ? (
+                    <div style={{ overflowX: 'auto' }}>
+                      <table className="price-table">
+                        <thead>
+                          <tr>
+                            <th>犬種</th>
+                            <th>シャンプーセット</th>
+                            <th>シャンプーカット</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {cat.breeds.map((row, j) => (
+                            <tr key={j}>
+                              <td>{row.breed}</td>
+                              <td className="price-num">{row.shampoo}</td>
+                              {row.cut ? (
+                                <td className="price-num">{row.cut}</td>
+                              ) : (
+                                <td className="price-dash">—</td>
+                              )}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  ) : (
+                    <p className="menu-acc-note">{cat.note}</p>
+                  )}
+                </div>
               </div>
             ))}
           </div>
 
-          <h3 className="menu-subtitle reveal">プラス料金（状態による追加）</h3>
-          <div className="option-grid reveal">
-            {plusData.map((item, i) => (
-              <div className="option-item" key={i}>
-                <span className="option-name">{item.name}</span>
-                <span className="option-price">{item.price}</span>
+          {/* オプション */}
+          <h3 className="menu-subtitle reveal" style={{ marginTop: '40px' }}>オプション・追加料金</h3>
+          <div className="menu-accordion reveal">
+            {optionCategoryData.map((cat, i) => (
+              <div key={i} className={`menu-acc-item${openOptionCat === i ? ' open' : ''}`}>
+                <button className="menu-acc-btn" onClick={() => toggleOptionCat(i)}>
+                  <span className="menu-acc-label">{cat.category}</span>
+                  <span className="menu-acc-count">{cat.items.length}項目</span>
+                  <Chevron className="menu-acc-chevron" />
+                </button>
+                <div className="menu-acc-body">
+                  <div className="option-grid">
+                    {cat.items.map((item, j) => (
+                      <div className="option-item" key={j}>
+                        <span className="option-name">{item.name}</span>
+                        <span className="option-price">{item.price}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
