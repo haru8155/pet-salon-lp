@@ -1060,26 +1060,15 @@ footer {
   letter-spacing: 0.04em;
 }
 
-.menu-acc-count {
-  font-size: 11px;
-  color: var(--brown-mid);
-  background: var(--beige);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 2px 10px;
-  white-space: nowrap;
-}
-
-.menu-acc-chevron {
+.menu-acc-paw {
   flex-shrink: 0;
-  width: 18px;
-  height: 18px;
-  color: var(--brown-mid);
-  transition: transform 0.3s;
+  fill: #C0956A;
+  transition: fill 0.25s ease, transform 0.25s ease;
 }
 
-.menu-acc-item.open .menu-acc-chevron {
-  transform: rotate(180deg);
+.menu-acc-item.open .menu-acc-paw {
+  fill: var(--brown);
+  transform: rotate(20deg);
 }
 
 .menu-acc-body {

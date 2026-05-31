@@ -127,9 +127,13 @@ const GalleryIcon = () => (
   </svg>
 )
 
-const Chevron = ({ className }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M6 9l6 6 6-6" />
+const PawIcon = ({ className }) => (
+  <svg className={className} width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
+    <ellipse cx="16" cy="21" rx="7" ry="5.5" />
+    <circle cx="9" cy="13.5" r="2.6" />
+    <circle cx="14" cy="11" r="2.4" />
+    <circle cx="18" cy="11" r="2.4" />
+    <circle cx="23" cy="13.5" r="2.6" />
   </svg>
 )
 
@@ -375,10 +379,7 @@ export default function App() {
               <div key={i} className={`menu-acc-item${openPriceCat === i ? ' open' : ''}`}>
                 <button className="menu-acc-btn" onClick={() => togglePriceCat(i)}>
                   <span className="menu-acc-label">{cat.category}</span>
-                  {cat.breeds.length > 0 && (
-                    <span className="menu-acc-count">{cat.breeds.length}犬種</span>
-                  )}
-                  <Chevron className="menu-acc-chevron" />
+                  <PawIcon className="menu-acc-paw" />
                 </button>
                 <div className="menu-acc-body">
                   {cat.breeds.length > 0 ? (
@@ -421,8 +422,7 @@ export default function App() {
               <div key={i} className={`menu-acc-item${openOptionCat === i ? ' open' : ''}`}>
                 <button className="menu-acc-btn" onClick={() => toggleOptionCat(i)}>
                   <span className="menu-acc-label">{cat.category}</span>
-                  <span className="menu-acc-count">{cat.items.length}項目</span>
-                  <Chevron className="menu-acc-chevron" />
+                  <PawIcon className="menu-acc-paw" />
                 </button>
                 <div className="menu-acc-body">
                   <div className="option-grid">
