@@ -137,11 +137,21 @@ const PawIcon = ({ className }) => (
   </svg>
 )
 
+const CtaBar = () => (
+  <div className="cta-bar">
+    <a href="https://lin.ee/6y99Pzi" target="_blank" rel="noopener noreferrer" className="btn-reserve cta-bar-btn">
+      ご予約はこちら
+    </a>
+  </div>
+)
+
 export default function App() {
   const [scrolled, setScrolled] = useState(false)
   const [openFaq, setOpenFaq] = useState(null)
   const [openPriceCat, setOpenPriceCat] = useState(null)
   const [openOptionCat, setOpenOptionCat] = useState(null)
+  const [conceptOpen, setConceptOpen] = useState(false)
+  const [trimmerBioOpen, setTrimmerBioOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60)
@@ -180,9 +190,9 @@ export default function App() {
         </div>
         <nav>
           <a href="#concept">サロンについて</a>
+          <a href="#gallery">ギャラリー</a>
           <a href="#trimmer">トリマー紹介</a>
           <a href="#menu">トリミング</a>
-          <a href="#gallery">ギャラリー</a>
           <a href="#faq">よくある質問</a>
           <a href="https://lin.ee/6y99Pzi" target="_blank" rel="noopener noreferrer" className="btn-reserve">ご予約はこちら</a>
         </nav>
@@ -210,21 +220,7 @@ export default function App() {
               <span className="snav-en">ABOUT US</span>
               <span className="snav-jp">サロンについて</span>
             </a>
-            <a href="#trimmer" className="snav-item hero-snav-item" style={{ animationDelay: '1.05s' }}>
-              <div className="snav-icon">
-                <img src="/画像/トリマーアイコン.png" alt="トリマー紹介" />
-              </div>
-              <span className="snav-en">TRIMMER</span>
-              <span className="snav-jp">トリマー紹介</span>
-            </a>
-            <a href="#menu" className="snav-item hero-snav-item" style={{ animationDelay: '1.2s' }}>
-              <div className="snav-icon">
-                <img src="/画像/シザース.png" alt="トリミング" />
-              </div>
-              <span className="snav-en">TRIMMING</span>
-              <span className="snav-jp">トリミング</span>
-            </a>
-            <a href="#gallery" className="snav-item hero-snav-item" style={{ animationDelay: '1.35s' }}>
+            <a href="#gallery" className="snav-item hero-snav-item" style={{ animationDelay: '1.05s' }}>
               <div className="snav-icon">
                 <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
                   <rect x="4" y="7" width="28" height="22" rx="3" stroke="#7B4A1E" strokeWidth="1.8" />
@@ -234,6 +230,20 @@ export default function App() {
               </div>
               <span className="snav-en">GALLERY</span>
               <span className="snav-jp">ギャラリー</span>
+            </a>
+            <a href="#trimmer" className="snav-item hero-snav-item" style={{ animationDelay: '1.2s' }}>
+              <div className="snav-icon">
+                <img src="/画像/トリマーアイコン.png" alt="トリマー紹介" />
+              </div>
+              <span className="snav-en">TRIMMER</span>
+              <span className="snav-jp">トリマー紹介</span>
+            </a>
+            <a href="#menu" className="snav-item hero-snav-item" style={{ animationDelay: '1.35s' }}>
+              <div className="snav-icon">
+                <img src="/画像/シザース.png" alt="トリミング" />
+              </div>
+              <span className="snav-en">TRIMMING</span>
+              <span className="snav-jp">トリミング</span>
             </a>
             <a href="#faq" className="snav-item hero-snav-item" style={{ animationDelay: '1.5s' }}>
               <div className="snav-icon">
@@ -269,6 +279,78 @@ export default function App() {
         </div>
       </section>
 
+      {/* FEATURES */}
+      <section className="features-section">
+        <div className="features-inner">
+          <div className="feature-card reveal">
+            <div className="feature-icon">
+              <PawIcon className="feature-paw" />
+            </div>
+            <p className="feature-heading">この子のペースで</p>
+            <p className="feature-text">この子の「いまの流れ」にそっと寄り添い、負担のないやさしい時間を</p>
+          </div>
+          <div className="feature-card reveal">
+            <div className="feature-icon">
+              <PawIcon className="feature-paw" />
+            </div>
+            <p className="feature-heading">丁寧なカウンセリング</p>
+            <p className="feature-text">事前の丁寧なカウンセリングはもちろん</p>
+          </div>
+          <div className="feature-card reveal">
+            <div className="feature-icon">
+              <PawIcon className="feature-paw" />
+            </div>
+            <p className="feature-heading">トリミングシート</p>
+            <p className="feature-text">「トリミングシート」をお渡しいたします</p>
+          </div>
+        </div>
+      </section>
+
+      {/* MENU SHORTCUT */}
+      <section className="menu-shortcut-section">
+        <div className="menu-shortcut-inner">
+          <a href="#menu" className="menu-shortcut-card reveal">
+            <span className="menu-shortcut-label">料金・メニューを見る</span>
+            <span className="menu-shortcut-arrow">›</span>
+          </a>
+        </div>
+      </section>
+
+      {/* GALLERY */}
+      <section id="gallery">
+        <div className="section-header reveal">
+          <span className="section-title-en">GALLERY</span>
+          <span className="section-title-jp">インスタグラム</span>
+        </div>
+        <div className="gallery-inner">
+          <div className="gallery-grid reveal">
+            {[...Array(6)].map((_, i) => (
+              <div className="gallery-placeholder" key={i}>
+                <GalleryIcon />
+              </div>
+            ))}
+          </div>
+          <div className="gallery-cta reveal">
+            <a
+              href="https://www.instagram.com/sio_grooming"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7B4A1E" strokeWidth="1.8">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1.5" fill="#7B4A1E" stroke="none" />
+              </svg>
+              Instagramをフォローする　@sio_grooming
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA BAR */}
+      <CtaBar />
+
       {/* CONCEPT */}
       <section id="concept">
         <div className="section-header reveal">
@@ -280,20 +362,25 @@ export default function App() {
           <div className="concept-text reveal">
             <p>はじめまして。Sio grooming（シオ グルーミング）オーナーのshiotaです。</p>
             <p>私はトリマーとして働いてきた中でパピーからシニア犬まで、たくさんのワンちゃんたちと出会い、一頭一頭に違う「心地よいペース」があることを学びました。</p>
-            <p>
-              サロン名である「Sio（しお）」には、日本語の「潮」の意味も込められています。<br />
-              海の潮が太陽や月に導かれ満ち引きするように、ワンちゃんの体調や心の波も、毎日少しずつ変化するものです。
-            </p>
-            <p>
-              だからこそ当店では、人間の都合でトリミングを進めることはいたしません。<br />
-              この子の「いまの流れ」にそっと寄り添い、負担のないやさしい時間を過ごしていただくことを何よりも大切にしています。
-            </p>
-            <p>飼い主様が想う「かわいい」を一緒に見つけながら、この子のペースで、この子の"いま"に合うスタイルやケアを。</p>
-            <p>
-              そして、当店がもうひとつ大切にしているのは、「この子の様子を飼い主様へしっかりとお伝えすること」です。<br />
-              事前の丁寧なカウンセリングはもちろん、お迎えの時には、今日のトリミング中の様子やがんばったこと、気づいた体の変化などをまとめた「トリミングシート」をお渡しいたします。
-            </p>
-            <p>この子それぞれの「このこらしさ」を、一緒に見つけていきましょう。</p>
+            <div className={`concept-expandable${conceptOpen ? ' open' : ''}`}>
+              <p>
+                サロン名である「Sio（しお）」には、日本語の「潮」の意味も込められています。<br />
+                海の潮が太陽や月に導かれ満ち引きするように、ワンちゃんの体調や心の波も、毎日少しずつ変化するものです。
+              </p>
+              <p>
+                だからこそ当店では、人間の都合でトリミングを進めることはいたしません。<br />
+                この子の「いまの流れ」にそっと寄り添い、負担のないやさしい時間を過ごしていただくことを何よりも大切にしています。
+              </p>
+              <p>飼い主様が想う「かわいい」を一緒に見つけながら、この子のペースで、この子の"いま"に合うスタイルやケアを。</p>
+              <p>
+                そして、当店がもうひとつ大切にしているのは、「この子の様子を飼い主様へしっかりとお伝えすること」です。<br />
+                事前の丁寧なカウンセリングはもちろん、お迎えの時には、今日のトリミング中の様子やがんばったこと、気づいた体の変化などをまとめた「トリミングシート」をお渡しいたします。
+              </p>
+              <p>この子それぞれの「このこらしさ」を、一緒に見つけていきましょう。</p>
+            </div>
+            <button className="concept-toggle" onClick={() => setConceptOpen(p => !p)}>
+              {conceptOpen ? '閉じる' : 'もっと見る'}
+            </button>
           </div>
         </div>
       </section>
@@ -304,23 +391,32 @@ export default function App() {
           <span className="section-title-en">TRIMMER</span>
           <span className="section-title-jp">トリマー紹介</span>
         </div>
-        <div className="trimmer-inner">
-          <div className="trimmer-photo reveal">
-            <img src="/画像/トリマー.png" alt="トリマー shiota" />
-          </div>
-          <div className="trimmer-info reveal">
+        <div className="trimmer-cards">
+          <div className="trimmer-card reveal">
+            <div className="trimmer-card-top">
+              <PawIcon className="trimmer-deco-paw" />
+            </div>
             <p className="trimmer-name">shiota</p>
             <p className="trimmer-role">オーナートリマー　トリマー歴 8年</p>
             <p className="trimmer-pets">
               愛犬・愛猫：<span>チワワ、ビションフリーゼ、保護猫</span>
             </p>
-            <p className="trimmer-bio">
-              愛犬のチワワくーちゃんとの出会いをきっかけにトリマーを目指しました。<br />
-              県内サロンでのトリマー経験を活かし、わんちゃんそれぞれの流れに寄り添ったやさしいトリミングを心がけています。<br />
-              トリミングを通して、飼い主さまのもっと愛おしいを増やし、それがわんちゃんの幸せにつながるお手伝いができれば嬉しいです。<br />
-              犬や猫ペットに関する知識は日々更新されていくからこそ、常に学び続け、飼い主様が気軽に相談できる存在を目指しています。
-            </p>
-            <div className="trimmer-qualifications">
+            <div className="trimmer-bio-wrap">
+              <p className="trimmer-bio-line">
+                愛犬のチワワくーちゃんとの出会いをきっかけにトリマーを目指しました。
+              </p>
+              <div className={`trimmer-bio-expanded${trimmerBioOpen ? ' open' : ''}`}>
+                <p>
+                  県内サロンでのトリマー経験を活かし、わんちゃんそれぞれの流れに寄り添ったやさしいトリミングを心がけています。<br />
+                  トリミングを通して、飼い主さまのもっと愛おしいを増やし、それがわんちゃんの幸せにつながるお手伝いができれば嬉しいです。<br />
+                  犬や猫ペットに関する知識は日々更新されていくからこそ、常に学び続け、飼い主様が気軽に相談できる存在を目指しています。
+                </p>
+              </div>
+            </div>
+            <button className="trimmer-bio-toggle" onClick={() => setTrimmerBioOpen(p => !p)}>
+              {trimmerBioOpen ? '閉じる' : 'もっと見る'}
+            </button>
+            <div className="trimmer-card-quals">
               <h4>資格・受賞歴</h4>
               <ul className="qual-list">
                 <li>愛玩動物飼養管理士1級</li>
@@ -336,6 +432,9 @@ export default function App() {
           </div>
         </div>
       </section>
+
+      {/* CTA BAR */}
+      <CtaBar />
 
       {/* MENU */}
       <section id="menu">
@@ -438,38 +537,6 @@ export default function App() {
             ))}
           </div>
 
-        </div>
-      </section>
-
-      {/* GALLERY */}
-      <section id="gallery">
-        <div className="section-header reveal">
-          <span className="section-title-en">GALLERY</span>
-          <span className="section-title-jp">インスタグラム</span>
-        </div>
-        <div className="gallery-inner">
-          <div className="gallery-grid reveal">
-            {[...Array(6)].map((_, i) => (
-              <div className="gallery-placeholder" key={i}>
-                <GalleryIcon />
-              </div>
-            ))}
-          </div>
-          <div className="gallery-cta reveal">
-            <a
-              href="https://www.instagram.com/sio_grooming"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-outline"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7B4A1E" strokeWidth="1.8">
-                <rect x="2" y="2" width="20" height="20" rx="5" />
-                <circle cx="12" cy="12" r="5" />
-                <circle cx="17.5" cy="6.5" r="1.5" fill="#7B4A1E" stroke="none" />
-              </svg>
-              Instagramをフォローする　@sio_grooming
-            </a>
-          </div>
         </div>
       </section>
 
@@ -639,9 +706,9 @@ export default function App() {
           <div className="footer-nav">
             <ul>
               <li><a href="#concept">サロンについて <span>›</span></a></li>
+              <li><a href="#gallery">ギャラリー <span>›</span></a></li>
               <li><a href="#trimmer">トリマー紹介 <span>›</span></a></li>
               <li><a href="#menu">トリミング <span>›</span></a></li>
-              <li><a href="#gallery">ギャラリー <span>›</span></a></li>
               <li><a href="#faq">よくある質問 <span>›</span></a></li>
               <li><a href="#access">ご予約・アクセス <span>›</span></a></li>
               <li><a href="/terms.html">利用規約 <span>›</span></a></li>
