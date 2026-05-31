@@ -639,11 +639,18 @@ nav a:hover { color: var(--brown); }
 .faq-item.open .faq-chevron { transform: rotate(180deg); }
 
 .faq-answer {
-  display: none;
-  padding: 0 0 20px 32px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  padding: 0 0 0 32px;
+  transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.3s ease;
 }
 
-.faq-item.open .faq-answer { display: block; }
+.faq-item.open .faq-answer {
+  max-height: 600px;
+  opacity: 1;
+  padding: 0 0 20px 32px;
+}
 
 .faq-a-mark {
   font-family: var(--font-serif);
@@ -952,11 +959,6 @@ footer {
 
 /* ===== HOVER ANIMATIONS ===== */
 
-/* 肉球アイコン（SVG data URL） */
-:root {
-  --paw-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><ellipse cx='16' cy='21' rx='7' ry='5.5' fill='%23C0956A'/><circle cx='9' cy='13.5' r='2.6' fill='%23C0956A'/><circle cx='14' cy='11' r='2.4' fill='%23C0956A'/><circle cx='18' cy='11' r='2.4' fill='%23C0956A'/><circle cx='23' cy='13.5' r='2.6' fill='%23C0956A'/></svg>");
-}
-
 /* オプション項目 hover */
 .option-item:hover {
   transform: translateY(-2px);
@@ -976,7 +978,7 @@ footer {
   top: 50%;
   width: 15px;
   height: 15px;
-  background-image: var(--paw-icon);
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><ellipse cx='16' cy='21' rx='7' ry='5.5' fill='%23C0956A'/><circle cx='9' cy='13.5' r='2.6' fill='%23C0956A'/><circle cx='14' cy='11' r='2.4' fill='%23C0956A'/><circle cx='18' cy='11' r='2.4' fill='%23C0956A'/><circle cx='23' cy='13.5' r='2.6' fill='%23C0956A'/></svg>");
   background-size: contain;
   background-repeat: no-repeat;
   opacity: 0;
@@ -1014,7 +1016,7 @@ footer {
   top: 50%;
   width: 13px;
   height: 13px;
-  background-image: var(--paw-icon);
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><ellipse cx='16' cy='21' rx='7' ry='5.5' fill='%23C0956A'/><circle cx='9' cy='13.5' r='2.6' fill='%23C0956A'/><circle cx='14' cy='11' r='2.4' fill='%23C0956A'/><circle cx='18' cy='11' r='2.4' fill='%23C0956A'/><circle cx='23' cy='13.5' r='2.6' fill='%23C0956A'/></svg>");
   background-size: contain;
   background-repeat: no-repeat;
   opacity: 0;

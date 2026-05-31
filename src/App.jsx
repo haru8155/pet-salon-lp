@@ -481,7 +481,7 @@ export default function App() {
         </div>
         <div className="faq-inner">
           {faqData.map((item, i) => (
-            <div key={i} className={`faq-item reveal${openFaq === i ? ' open' : ''}`}>
+            <div key={i} className={`faq-item${openFaq === i ? ' open' : ''}`}>
               <button className="faq-question" onClick={() => toggleFaq(i)}>
                 <span className="faq-q-mark">Q</span>
                 <span className="faq-q-text">{item.q}</span>
