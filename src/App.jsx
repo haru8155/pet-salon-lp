@@ -286,22 +286,22 @@ export default function App() {
             <div className="feature-icon">
               <PawIcon className="feature-paw" />
             </div>
-            <p className="feature-heading">この子のペースで</p>
-            <p className="feature-text">この子の「いまの流れ」にそっと寄り添い、負担のないやさしい時間を</p>
+            <p className="feature-heading">この子のペースに寄り添う施術</p>
+            <p className="feature-text">体調や気分に合わせて、負担の少ない時間を大切にします</p>
           </div>
           <div className="feature-card reveal">
             <div className="feature-icon">
               <PawIcon className="feature-paw" />
             </div>
-            <p className="feature-heading">丁寧なカウンセリング</p>
-            <p className="feature-text">事前の丁寧なカウンセリングはもちろん</p>
+            <p className="feature-heading">丁寧なカウンセリングと共有</p>
+            <p className="feature-text">施術中の様子や気づきを、トリミングシートでお伝えします</p>
           </div>
           <div className="feature-card reveal">
             <div className="feature-icon">
               <PawIcon className="feature-paw" />
             </div>
-            <p className="feature-heading">トリミングシート</p>
-            <p className="feature-text">「トリミングシート」をお渡しいたします</p>
+            <p className="feature-heading">学び続ける専門的なケア</p>
+            <p className="feature-text">栄養・マウスケア・老犬介護まで、幅広い知識でサポートします</p>
           </div>
         </div>
       </section>
