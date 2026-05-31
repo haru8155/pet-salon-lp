@@ -661,8 +661,7 @@ export default function App() {
 
       {/* FOOTER */}
       <footer>
-        <img src="/画像/犬-transparent.png" alt="" className="footer-dog-bg" aria-hidden="true" />
-        <div className="footer-inner">
+<div className="footer-inner">
           <div className="footer-left">
             <div className="footer-logo">
               <img src="/画像/ロゴのみ.png" alt="Sio grooming" />
