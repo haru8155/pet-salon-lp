@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>利用規約 | Sio grooming</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brown:       #7B4A1E;
+      --brown-dark:  #4A2E10;
+      --brown-mid:   #7B5C3A;
+      --yellow:      #F5C024;
+      --green:       #7BAF3A;
+      --cream:       #FDF8F0;
+      --beige:       #F5ECD9;
+      --border:      #E8D9C0;
+      --white:       #FFFFFF;
+      --font-serif:  'Noto Serif JP', 'Yu Mincho', serif;
+      --font-sans:   'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--brown-dark);
+      line-height: 2;
+      font-size: 15px;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== HEADER ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      padding: 0 32px;
+      background: rgba(255,255,255,0.97);
+      box-shadow: 0 2px 12px rgba(123,74,30,0.08);
+    }
+
+    .nav-logo img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+
+    .header-right {
+      margin-left: auto;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--brown-mid);
+      border: 1px solid var(--border);
+      padding: 7px 18px;
+      border-radius: 20px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-back:hover {
+      background: var(--brown);
+      color: #fff;
+      border-color: var(--brown);
+    }
+
+    /* ===== MAIN ===== */
+    main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 60px 40px 100px;
+    }
+
+    /* Page title */
+    .page-title-wrap {
+      text-align: center;
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1.5px solid var(--border);
+    }
+
+    .page-title-en {
+      font-family: var(--font-serif);
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--brown);
+      letter-spacing: 0.12em;
+      display: block;
+    }
+
+    .page-title-jp {
+      font-size: 13px;
+      color: var(--brown-mid);
+      letter-spacing: 0.1em;
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* Lead text */
+    .lead {
+      background: var(--white);
+      border-left: 3px solid var(--brown);
+      padding: 20px 24px;
+      border-radius: 4px;
+      margin-bottom: 40px;
+    }
+
+    .lead p {
+      font-size: 14px;
+      color: var(--brown-dark);
+      line-height: 2;
+    }
+
+    .lead .warning {
+      margin-top: 10px;
+      font-weight: 600;
+      color: var(--brown);
+    }
+
+    .lead .note {
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--brown-mid);
+      line-height: 1.8;
+    }
+
+    /* Section */
+    .terms-section {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 32px 36px;
+      margin-bottom: 24px;
+      border: 1px solid var(--border);
+    }
+
+    .terms-section-title {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--brown);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .terms-section-title::before {
+      content: '》';
+      font-size: 15px;
+      color: var(--yellow);
+    }
+
+    .terms-body {
+      font-size: 14px;
+      color: var(--brown-dark);
+      line-height: 2;
+    }
+
+    .terms-body p {
+      margin-bottom: 14px;
+    }
+
+    .terms-body p:last-child { margin-bottom: 0; }
+
+    /* Bullet list */
+    .terms-list {
+      list-style: none;
+      margin: 10px 0 14px;
+    }
+
+    .terms-list li {
+      font-size: 14px;
+      color: var(--brown-dark);
+      line-height: 1.9;
+      padding-left: 22px;
+      position: relative;
+      margin-bottom: 4px;
+    }
+
+    .terms-list li::before {
+      content: '◼︎';
+      position: absolute;
+      left: 0;
+      color: var(--brown);
+      font-size: 10px;
+      top: 5px;
+    }
+
+    .terms-list.numbered li::before {
+      content: none;
+    }
+
+    .terms-list.numbered {
+      counter-reset: item;
+    }
+
+    .terms-list.numbered li {
+      padding-left: 28px;
+    }
+
+    .terms-list.numbered li::before {
+      content: '①';
+      position: absolute;
+      left: 0;
+      color: var(--brown);
+      font-size: 14px;
+      top: 0;
+    }
+
+    .terms-list.numbered li:nth-child(2)::before { content: '②'; }
+
+    /* Sub note */
+    .sub-note {
+      font-size: 13px;
+      color: var(--brown-mid);
+      line-height: 1.9;
+      margin-top: 8px;
+      padding-left: 14px;
+      border-left: 2px solid var(--border);
+    }
+
+    /* Warning box */
+    .warn-box {
+      background: #FFF8F0;
+      border: 1px solid #E8C88C;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 14px 0;
+      font-size: 13px;
+      color: var(--brown);
+      line-height: 1.9;
+    }
+
+    /* Divider */
+    .terms-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 18px 0;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--brown-mid);
+    }
+
+    @media (max-width: 600px) {
+      main { padding: 40px 20px 80px; }
+      header { padding: 0 20px; }
+      .terms-section { padding: 24px 20px; }
+      .page-title-en { font-size: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="nav-logo">
+      <img src="画像/ロゴのみ.png" alt="Sio grooming">
+    </a>
+    <div class="header-right">
+      <a href="index.html" class="btn-back">
+        ← トップへ戻る
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="page-title-wrap">
+      <span class="page-title-en">TERMS OF SERVICE</span>
+      <span class="page-title-jp">利用規約</span>
+    </div>
+
+    <div class="lead">
+      <p>お客様に当店サービスご利用に際しまして注意点をご理解いただきたく、利用規約をご用意いたしました。</p>
+      <p class="warning">※守っていただけない方のご利用はお断りいたします。</p>
+      <p class="note">初回トリミングの際に同意書をお書きいただきますので、お手数ですが必ずお読みいただき、ご理解の程宜しくお願い申し上げます。</p>
+    </div>
+
+    <!-- 初回ご利用時 -->
+    <div class="terms-section">
+      <h2 class="terms-section-title">初回ご利用時</h2>
+      <div class="terms-body">
+        <p>下記の2点を当日ご提示、または当日までに写真をお送りください。</p>
+        <ul class="terms-list numbered">
+          <li>混合ワクチン5種以上の証明書</li>
+          <li>狂犬病予防接種証明書</li>
+        </ul>
+        <ul class="terms-list">
+          <li>一年以内のもの。</li>
+          <li>獣医師の指示で未接種の場合は、猶予証明書をご提示ください。</li>
+          <li>以降、接種の度にご提示ください。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 注意事項 -->
+    <div class="terms-section">
+      <h2 class="terms-section-title">注意事項</h2>
+      <div class="terms-body">
+        <p>以下の項目に当てはまる場合は、必ずお知らせください。</p>
+        <ul class="terms-list">
+          <li>持病・怪我・治療中など健康状態に不安がある場合<br><span class="sub-note">※緊急時の対処方法や注意事項もお知らせください。</span></li>
+          <li>過去に大きな病気や怪我をしたことがある場合</li>
+          <li>ヒート中の場合</li>
+          <li>噛み癖がある場合</li>
+          <li>過去に他のわんちゃんや人に対して咬傷事故を起こしたことがある場合</li>
+        </ul>
+        <div class="terms-divider"></div>
+        <p>以下の項目に当てはまる場合はご利用をお断りすることがあります。</p>
+        <ul class="terms-list">
+          <li>極度の噛み癖、吠え癖がある場合</li>
+          <li>極度の緊張状態により、わんちゃんの心身へのストレスが大きいと判断した場合</li>
+          <li>狂犬病・ワクチン予防接種を行っていない場合</li>
+          <li>ノミ・ダニの予防を通年行っていない場合</li>
+          <li>予防の有無に関わらず、ノミ・ダニが多数寄生している場合</li>
+          <li>重病、人畜共通感染症、癲癇、心臓・呼吸器系の持病、その他重い疾患や外傷がある場合</li>
+        </ul>
+        <div class="warn-box">※癲癇、心臓病等、トリミングで心身ともに負荷がかかることをオーナー様がご理解下さる場合、または付き添いで行える場合はお受けいたします。</div>
+        <ul class="terms-list">
+          <li>持病や治療中の病気、または怪我があり、獣医師からトリミングの許可が出ていない場合</li>
+          <li>妊娠中、産後30日以内の場合</li>
+          <li>オーナー様との信頼関係が築けないと判断した場合</li>
+        </ul>
+        <p class="sub-note">※上記以外の理由でも、当店の判断によりお断りする場合がございます。</p>
+      </div>
+    </div>
+
+    <!-- パピー期 -->
+    <div class="terms-section">
+      <h2 class="terms-section-title">パピー期トリミングについて</h2>
+      <div class="terms-body">
+        <p>生後3ヶ月以降のワクチン接種後から、1週間あけてご利用いただけます。<br>
+        （体調に問題がない場合のみ）</p>
+        <p>トリミング自体かなりの負担になりますので、無理せず、完璧な仕上がりでない場合がございますことをご理解ください。</p>
+      </div>
+    </div>
+
+    <!-- シニア期 -->
+    <div class="terms-section">
+      <h2 class="terms-section-title">シニア期トリミングについて</h2>
+      <div class="terms-body">
+        <p>シニア（7歳以上）のわんちゃん、持病があるわんちゃんはオーナー様のご理解、ご協力をいただける場合のみお受けいたします。</p>
+        <p>今までできていたことが急にできなくなる、パニックを起こす場合があります。</p>
+        <p>体力的にもとても負担になりますので、時短で終わらせられるカットへのスタイルチェンジ、できる範囲での施術等、わんちゃんファーストにご協力ください。</p>
+        <p>ハイシニア（12歳以上）の子に関しましては、より難しくなりますので、利用規約とは別にハイシニア犬トリミングの同意書にご署名いただいた方のみとさせていただきます。</p>
+      </div>
+    </div>
+
+    <!-- トリミングの中断 -->
+    <div class="terms-section">
+      <h2 class="terms-section-title">トリミングの中断について</h2>
+      <div class="terms-body">
+        <p>以下の項目に当てはまる場合は、サービスを中断させていただきます。<br>
+        当店では無理な施術は行いません。これ以上出来ないと判断した場合は、できる範囲での施術となりますが、正規の料金をいただきます。</p>
+        <ul class="terms-list">
+          <li>体調の変化や異変があった場合</li>
+          <li>極度に怖がる・暴れる・噛みつく場合</li>
+          <li>ノミ・ダニを発見した場合<br><span class="sub-note">直ちにお迎えに来ていただき、病院で駆除をお願いします。1週間空けてのご予約をお取り直し下さい。</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 追加料金 -->
+    <div class="terms-section">
+      <h2 class="terms-section-title">追加料金について</h2>
+      <div class="terms-body">
+        <p>以下の項目に当てはまる場合、追加料金が発生いたします。</p>
+        <ul class="terms-list">
+          <li>噛み付く場合</li>
+          <li>毛玉が多い場合</li>
+          <li>通常より毛量が多い場合や体格が大きい場合</li>
+          <li>一人では難しく保定が必要な場合</li>
+          <li>ノミ・ダニが寄生している場合<br><span class="sub-note">※当日施術予定だった内容のトリミング料金＋駆除、清掃消毒料金を頂戴します（¥1,100〜）</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- その他の注意事項 -->
+    <div class="terms-section">
+      <h2 class="terms-section-title">その他の注意事項</h2>
+      <div class="terms-body">
+        <ul class="terms-list">
+          <li>安全のため、施術時に口輪やエリザベスカラーを着用させていただく場合があります。</li>
+          <li>お預かり中は緊急連絡先に連絡させていただく場合がございますので連絡がつくようお願いいたします。</li>
+          <li>来店時はマナーベルト、マナーパンツを着用し、着替えを2、3枚ご持参ください。<br><span class="sub-note">※有料（1枚 110円）でご用意しています。</span></li>
+          <li>店舗近隣での排泄マナーにご協力をお願いいたします。屋外でしかしない場合、マナーパンツを着用したままお願いします。（必ず処理してください。）</li>
+          <li>お客様の過失により共有部や店内の破損が生じた場合は一定金額をご請求させていただく場合がございます。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ご予約・キャンセル -->
+    <div class="terms-section">
+      <h2 class="terms-section-title">ご予約、キャンセルについて</h2>
+      <div class="terms-body">
+        <ul class="terms-list">
+          <li>当店は完全予約制です。<br>
+          ご予約は来店時、公式LINE、DM、電話にてお願いいたします。</li>
+        </ul>
+        <p>ご予約は2ヶ月後の同日まで可能です。</p>
+        <div class="warn-box">例　1月10日に連絡　→　3月10日まで予約可</div>
+        <p>不確実ではなく、確実なお日にちをお取りください。<br>
+        （当日お取りできる場合もございます。ご連絡ください。）</p>
+        <p class="sub-note">※12月のみ予約可能日が異なります。</p>
+        <div class="terms-divider"></div>
+        <ul class="terms-list">
+          <li>当店は1ヶ月〜1ヶ月半のトリミングを推奨しています。<br>
+          前回の施術〜10週以上の場合、基本料金（サイズ料金含む）＋10%を頂戴します。</li>
+        </ul>
+        <div class="terms-divider"></div>
+        <p>キャンセルは迷惑行為にあたりますのでキャンセル代が１匹毎に発生いたします。</p>
+        <div class="warn-box">
+          前日　　ご予約内容料金の 50%<br>
+          当日　　ご予約内容料金の 100%
+        </div>
+        <p class="sub-note">※わんちゃん、飼い主様の体調不良の場合は発生いたしませんので遠慮なくお申し付けください。別日に予約変更させていただきます。</p>
+        <div class="terms-divider"></div>
+        <ul class="terms-list">
+          <li>連絡の有無にかかわらず変更やキャンセルが多い場合は、お断りさせていただきます。</li>
+          <li>トリミング以外でおやつ等の購入でのご来店もご予約をお願いします。<br>
+          トリミングの子と状況により可能なお時間をお伝えいたします。<br>
+          <span class="sub-note">※当日でも大丈夫な場合が多いですので一度ご連絡ください。</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 遅刻 -->
+    <div class="terms-section">
+      <h2 class="terms-section-title">遅刻について</h2>
+      <div class="terms-body">
+        <ul class="terms-list">
+          <li>遅刻する場合は、予約時間前までに必ずご連絡ください。</li>
+          <li>15分以上の遅刻の場合、ご予約いただいたコースの料金のまま施術内容を変更させていただきます。</li>
+          <li>事前のご連絡がなく、ご予約時間から30分以上経過した場合はキャンセル扱いとなりキャンセル料100%をいただきます。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- お預かり・お迎え -->
+    <div class="terms-section">
+      <h2 class="terms-section-title">お預かり、お迎えについて</h2>
+      <div class="terms-body">
+        <ul class="terms-list">
+          <li>トリミング前後のお預かりは基本的に行っておりません。<br>
+          <span class="sub-note">※当店は施術をする部屋を壁で仕切っていないため、来店により施術中のわんちゃんが反応し続行不可能になる場合がございます。</span></li>
+          <li>お預けは予約時間丁度にお願いします。（1分でも早い場合はお車でお待ちください）<br>
+          <span class="sub-note">※10:00〜ご予約の方は時間前でもシャッターが開き次第ご入店可能です。<br>
+          ※やむおえず時間より前に預けたい場合は事前にご連絡ください。前の子をみて可能であればお預かりいたします。</span></li>
+          <li>お預かりの際に終了予定のお時間をお伝えしますが、あくまでも目安です。状況により大幅に前後する可能性もございます。前後する場合、目処がつき次第終了時間変更のご連絡をいたします。<br>
+          <span class="sub-note">※反応して施術不可能になりますので、終了時間より前のご入店はおやめください。</span></li>
+          <li>終了時間から30分以内でのお迎えをお願いいたします。<br>
+          <span class="sub-note">※遅れる場合は事前にお知らせください。次の子の施術に入っている場合、タイミングによってはかなりお待たせいたします。</span></li>
+          <li>お預かり時間からさかのぼって30分毎、終了時間から30分後以降、30分毎にお預かり料 ¥550が発生いたします。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- トリミングについて -->
+    <div class="terms-section">
+      <h2 class="terms-section-title">トリミングについて</h2>
+      <div class="terms-body">
+        <ul class="terms-list">
+          <li>ショートリミング、プラッキング、カラーリング、エクステ、ドレッドアレンジ等のサービスは行っておりません。</li>
+          <li>施術の仕上がりにご満足いただけない場合（オーナー様都合によるカット内容の変更を除く）、お迎え時にお伝えください。その場でお直しをさせていただきます。</li>
+          <li>ご帰宅されてから2営業日以内にご連絡いただき、施術から5日以内に当店にご来店いただける場合は無償でお直しさせていただきます。</li>
+          <li>わんちゃんの毛質・毛量・状態、わんちゃんの状態によってはご希望に添えない場合もございます。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 免責事項 -->
+    <div class="terms-section">
+      <h2 class="terms-section-title">免責事項</h2>
+      <div class="terms-body">
+        <ul class="terms-list">
+          <li>体調不良、急病、怪我を発見した場合、飼い主様にご連絡の上対処するように努めますが、緊急を要する場合やご連絡が取れない場合、当店の判断で獣医師の診察を受けさせていただきます。<br>
+          <span class="sub-note">※その際の治療費、それに伴う経費は全て飼い主様のご負担となりますのでご了承ください。</span></li>
+          <li>愛情をもって大切にお預かりさせていただきますが、万が一当店の過失により怪我や事故が発生した場合は飼い主様にご連絡の上対処するように努めますが、緊急を要する場合やオーナー様とご連絡が取れない場合、当店の判断で獣医師の治療を受けさせていただきます。<br>
+          <span class="sub-note">※その際の治療にかかる費用は当店が負担させていただきます。<br>
+          ※尚、治療費以外の慰謝料及びその他の損害賠償等のご請求に関しては、一切責任を負いかねますのでご了承ください。</span></li>
+          <li>トリミング中に発生した、爪切り時の軽い出血、バリカンによる軽い傷に対しては、当店で消毒等の処置を行います。</li>
+          <li>高齢、持病、特異体質等、予想のつかない疫病による不慮の事故、当店の不可抗力による負傷、失踪、死亡、又はご帰宅後に起こるトラブルに関しましては、当店では一切責任を負いかねますのでご了承ください。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 個人情報 -->
+    <div class="terms-section">
+      <h2 class="terms-section-title">個人情報のお取扱いについて</h2>
+      <div class="terms-body">
+        <ul class="terms-list">
+          <li>当店ではオーナー様から頂いた個人情報、わんちゃんの情報に関して厳重に管理いたします。</li>
+          <li>Instagram等へ写真、動画の掲載をする場合がございます。<br>
+          <span class="sub-note">※同意書に承認、否認欄がございますので、どちらかをお選びください。</span></li>
+        </ul>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Sio grooming All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
