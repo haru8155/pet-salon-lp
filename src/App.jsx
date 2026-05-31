@@ -206,9 +206,6 @@ export default function App() {
             alt="Sio grooming やさしく かわいく このこらしく、"
             className="hero-logo-msg"
           />
-          <a href="https://lin.ee/6y99Pzi" target="_blank" rel="noopener noreferrer" className="hero-cta">
-            <img src="/画像/ご予約はこちら.png" alt="ご予約はこちら" />
-          </a>
           <div className="hero-snav">
             <a href="#concept" className="snav-item hero-snav-item" style={{ animationDelay: '0.85s' }}>
               <div className="snav-icon">
