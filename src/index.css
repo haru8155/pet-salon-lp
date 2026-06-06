@@ -216,10 +216,8 @@ nav a:hover { color: var(--brown); }
   top: 50%;
   right: 60px;
   transform: translateY(-50%);
-  width: 300px;
-  opacity: 0.13;
-  mix-blend-mode: multiply;
-  border-radius: 12px;
+  width: 340px;
+  opacity: 0.08;
   pointer-events: none;
   user-select: none;
 }
