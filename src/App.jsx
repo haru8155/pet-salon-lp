@@ -278,6 +278,11 @@ export default function App() {
 
       {/* FEATURES */}
       <section className="features-section">
+        <div className="features-heading reveal">
+          <PawIcon className="features-heading-paw" />
+          <span className="features-heading-text">当店のこだわり</span>
+          <PawIcon className="features-heading-paw features-heading-paw-right" />
+        </div>
         <div className="features-inner">
           <div className="feature-card reveal">
             <div className="feature-icon">

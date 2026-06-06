@@ -1092,6 +1092,32 @@ footer {
   padding: 56px 0;
 }
 
+.features-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.features-heading-text {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--brown);
+  letter-spacing: 0.08em;
+}
+
+.features-heading-paw {
+  fill: #C0956A;
+  width: 18px;
+  height: 18px;
+}
+
+.features-heading-paw-right {
+  transform: scaleX(-1);
+}
+
 .features-inner {
   max-width: 1000px;
   margin: 0 auto;
