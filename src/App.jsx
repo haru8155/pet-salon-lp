@@ -24,6 +24,9 @@ const allBreeds = [
   { breed: 'ビションフリーゼ', shampoo: '¥7,500', cut: '¥10,500' },
   { breed: 'アメリカンコッカースパニエル', shampoo: '¥8,000', cut: '¥11,000' },
   { breed: '柴', shampoo: '¥8,000', cut: null },
+  { breed: 'ビーグル', shampoo: '¥7,000', cut: null },
+  { breed: 'コーギー', shampoo: '¥8,000', cut: null },
+  { breed: 'シェルティ', shampoo: '¥9,000', cut: null },
 ]
 
 const optionCategoryData = [
@@ -36,6 +39,7 @@ const optionCategoryData = [
       { name: 'はみがき', price: '＋¥700' },
       { name: 'りんご泡温浴', price: '＋¥700' },
       { name: 'シルク泡パック', price: '＋¥1,500' },
+      { name: '泡あわパックセット（りんご泡温浴、シルク泡パック）', price: '＋¥2,000' },
     ],
   },
   {
@@ -43,6 +47,7 @@ const optionCategoryData = [
     items: [
       { name: 'ヒゲカット', price: '＋¥500' },
       { name: 'プー足', price: '＋¥500' },
+      { name: '部分カット', price: '＋¥550' },
       { name: 'デザインカット', price: '＋¥1,000〜' },
       { name: 'オールシザー', price: '＋¥1,500〜' },
     ],
@@ -50,17 +55,19 @@ const optionCategoryData = [
   {
     category: '状態別の追加料金',
     items: [
-      { name: '毛玉', price: '＋¥500〜' },
-      { name: 'もつれ', price: '＋¥500〜' },
+      { name: '毛玉・もつれ', price: '＋¥500〜' },
+      { name: '抜け毛', price: '＋¥500〜' },
       { name: 'サイズ', price: '＋¥500〜' },
-      { name: '毛量', price: '＋¥500〜' },
-      { name: '保定', price: '＋¥500〜' },
+      { name: '毛量・ロング料金', price: '＋¥500〜' },
+      { name: '保定・技術料金', price: '＋¥500〜' },
     ],
   },
   {
-    category: 'その他オプション',
-    items: [
-      { name: 'マナーパンツ（1枚）', price: '＋¥100' },
+    category: 'その他注意事項',
+    notes: [
+      '衛生管理のため、すべてのわんちゃんにマナーパンツの着用をお願いしております。替え用として2〜3枚ご持参ください。当店でも1枚100円で販売しております。',
+      '混合ワクチンおよび狂犬病ワクチンの接種証明書のご提示をお願いしております。',
+      'トリミングが少しでも楽しい時間となるよう、お気に入りのおやつやフードのご持参をおすすめしております（🐾当店でも販売しております。）',
     ],
   },
 ]
@@ -504,14 +511,26 @@ export default function App() {
                   <PawIcon className="menu-acc-paw" />
                 </button>
                 <div className="menu-acc-body">
-                  <div className="option-grid">
-                    {cat.items.map((item, j) => (
-                      <div className="option-item" key={j}>
-                        <span className="option-name">{item.name}</span>
-                        <span className="option-price">{item.price}</span>
-                      </div>
-                    ))}
-                  </div>
+                  {cat.notes ? (
+                    <div className="option-notes">
+                      {cat.notes.map((note, j) => (
+                        <div className="option-note-item" key={j}>
+                          <PawIcon className="option-note-paw" />
+                          <p>{note}</p>
+                        </div>
+                      ))}
+                      <a href="/terms.html" className="terms-link-btn">詳しくは利用規約をご覧ください</a>
+                    </div>
+                  ) : (
+                    <div className="option-grid">
+                      {cat.items.map((item, j) => (
+                        <div className="option-item" key={j}>
+                          <span className="option-name">{item.name}</span>
+                          <span className="option-price">{item.price}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

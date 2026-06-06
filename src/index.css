@@ -516,6 +516,50 @@ nav a:hover { color: var(--brown); }
   white-space: nowrap;
 }
 
+.option-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.option-note-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--brown-dark);
+  line-height: 1.9;
+}
+
+.option-note-item p { margin: 0; }
+
+.option-note-paw {
+  fill: #C0956A;
+  flex-shrink: 0;
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+}
+
+.terms-link-btn {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 16px;
+  padding: 8px 20px;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  font-size: 13px;
+  color: var(--brown);
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.terms-link-btn:hover {
+  border-color: var(--brown);
+  background: var(--beige);
+}
+
 .menu-small-note {
   font-size: 12px;
   color: var(--brown-mid);
