@@ -399,7 +399,7 @@ export default function App() {
           <div className="trimmer-card reveal">
             <div className="trimmer-card-inner">
               <div className="trimmer-card-photo">
-                <img src="/画像/トリマー紹介①.jpg" alt="トリマー shiota" />
+                <img src="/画像/trimmer-shiota.jpg" alt="トリマー shiota" />
               </div>
               <div className="trimmer-card-content">
             <div className="trimmer-card-top">
