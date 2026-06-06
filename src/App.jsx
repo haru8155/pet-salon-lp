@@ -493,7 +493,7 @@ export default function App() {
                     </tbody>
                   </table>
                 </div>
-                <p className="menu-acc-note">上記に記載のない犬種はお問い合わせください。</p>
+                <p className="menu-acc-note">※当店は小型犬・中型犬専門のトリミングサロンです。上記に記載のない犬種やミックス犬の料金はお問い合わせください。<br />※持病のある子、シニア犬（13歳以上）はトリミングが負担になる場合もありますので事前にご相談ください。</p>
               </div>
             </div>
           </div>
