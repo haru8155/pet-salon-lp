@@ -395,11 +395,13 @@ export default function App() {
           <span className="section-title-en">TRIMMER</span>
           <span className="section-title-jp">トリマー紹介</span>
         </div>
-        <div className="trimmer-layout">
-          <div className="trimmer-photo reveal">
-            <img src="/画像/トリマー紹介①.jpg" alt="トリマー shiota" />
-          </div>
+        <div className="trimmer-cards">
           <div className="trimmer-card reveal">
+            <div className="trimmer-card-inner">
+              <div className="trimmer-card-photo">
+                <img src="/画像/トリマー紹介①.jpg" alt="トリマー shiota" />
+              </div>
+              <div className="trimmer-card-content">
             <div className="trimmer-card-top">
               <PawIcon className="trimmer-deco-paw" />
             </div>
@@ -433,6 +435,8 @@ export default function App() {
                 <li>老犬介護スペシャリスト講習受講</li>
                 <li>ペットBLS検定</li>
               </ul>
+            </div>
+              </div>
             </div>
           </div>
         </div>

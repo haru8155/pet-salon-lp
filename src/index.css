@@ -216,8 +216,10 @@ nav a:hover { color: var(--brown); }
   top: 50%;
   right: 60px;
   transform: translateY(-50%);
-  width: 340px;
-  opacity: 0.08;
+  width: 300px;
+  opacity: 0.13;
+  mix-blend-mode: multiply;
+  border-radius: 12px;
   pointer-events: none;
   user-select: none;
 }
@@ -1307,33 +1309,37 @@ footer {
   background: var(--beige);
 }
 
-/* ===== TRIMMER LAYOUT (photo left, card right) ===== */
+/* ===== TRIMMER CARD ===== */
 #trimmer {
   background: var(--beige);
 }
 
-.trimmer-layout {
+.trimmer-cards {
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 40px;
+}
+
+.trimmer-card-inner {
   display: flex;
-  gap: 48px;
+  gap: 36px;
   align-items: flex-start;
 }
 
-.trimmer-photo {
-  flex: 0 0 300px;
+.trimmer-card-photo {
+  flex: 0 0 220px;
 }
 
-.trimmer-photo img {
+.trimmer-card-photo img {
   width: 100%;
-  border-radius: 16px;
+  border-radius: 12px;
   object-fit: cover;
-  box-shadow: 0 4px 20px rgba(123, 74, 30, 0.12);
+  box-shadow: 0 3px 14px rgba(123, 74, 30, 0.12);
 }
 
-.trimmer-layout .trimmer-card {
+.trimmer-card-content {
   flex: 1;
+  min-width: 0;
 }
 
 .trimmer-card {
@@ -1441,9 +1447,9 @@ footer {
 
   .features-inner { grid-template-columns: 1fr; }
 
-  .trimmer-layout { flex-direction: column; padding: 0 20px; }
-  .trimmer-photo { flex: none; width: 100%; max-width: 360px; margin: 0 auto; }
-  .trimmer-layout .trimmer-card { width: 100%; }
+  .trimmer-cards { padding: 0 20px; }
+  .trimmer-card-inner { flex-direction: column; }
+  .trimmer-card-photo { flex: none; width: 100%; max-width: 300px; margin: 0 auto; }
 
   .menu-shortcut-inner { padding: 0 20px; }
 
@@ -1470,10 +1476,6 @@ footer {
   .features-inner { padding: 0 20px; }
 
   .menu-shortcut-inner { padding: 0 20px; }
-
-  .trimmer-layout { flex-direction: column; padding: 0 20px; }
-  .trimmer-photo { flex: none; width: 100%; max-width: 360px; margin: 0 auto; }
-  .trimmer-layout .trimmer-card { width: 100%; }
 
   .trimmer-card { padding: 28px 20px; }
 }
