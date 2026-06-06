@@ -1,44 +1,29 @@
 import { useState, useEffect } from 'react'
 
-const priceCategoryData = [
-  {
-    category: '小型犬',
-    breeds: [
-      { breed: 'スムースチワワ', shampoo: '¥5,000', cut: null },
-      { breed: 'ロングチワワ', shampoo: '¥5,500', cut: '¥7,500' },
-      { breed: 'スムースダックス', shampoo: '¥5,500', cut: null },
-      { breed: 'ロングダックス', shampoo: '¥6,000', cut: '¥8,000' },
-      { breed: 'フレンチブルドッグ', shampoo: '¥5,500', cut: null },
-      { breed: 'ボストンテリア', shampoo: '¥5,500', cut: null },
-      { breed: 'イタリアングレイハウンド', shampoo: '¥5,500', cut: null },
-      { breed: 'ミニチュアピンシャー', shampoo: '¥5,500', cut: null },
-      { breed: 'パグ', shampoo: '¥6,000', cut: null },
-      { breed: 'パピヨン', shampoo: '¥6,000', cut: '¥8,000' },
-      { breed: 'ペキニーズ', shampoo: '¥6,000', cut: '¥8,000' },
-      { breed: 'ポメラニアン', shampoo: '¥6,300', cut: '¥8,300' },
-      { breed: 'ヨークシャーテリア', shampoo: '¥6,300', cut: '¥8,800' },
-      { breed: 'マルチーズ', shampoo: '¥6,300', cut: '¥8,800' },
-      { breed: 'ジャックラッセルテリア', shampoo: '¥6,300', cut: '¥8,800' },
-      { breed: 'ウエスティ', shampoo: '¥6,500', cut: '¥9,000' },
-      { breed: 'シーズー', shampoo: '¥6,500', cut: '¥9,000' },
-      { breed: 'トイプードル', shampoo: '¥6,500', cut: '¥9,000' },
-      { breed: 'ミニチュアシュナウザー', shampoo: '¥7,000', cut: '¥9,500' },
-    ],
-  },
-  {
-    category: '中型犬',
-    breeds: [
-      { breed: 'キャバリア', shampoo: '¥7,000', cut: '¥9,000' },
-      { breed: 'ビションフリーゼ', shampoo: '¥7,500', cut: '¥10,500' },
-      { breed: 'アメリカンコッカースパニエル', shampoo: '¥8,000', cut: '¥11,000' },
-      { breed: '柴', shampoo: '¥8,000', cut: null },
-    ],
-  },
-  {
-    category: 'その他・要相談',
-    note: '上記に記載のない犬種はお問い合わせください。',
-    breeds: [],
-  },
+const allBreeds = [
+  { breed: 'スムースチワワ', shampoo: '¥5,000', cut: null },
+  { breed: 'ロングチワワ', shampoo: '¥5,500', cut: '¥7,500' },
+  { breed: 'スムースダックス', shampoo: '¥5,500', cut: null },
+  { breed: 'ロングダックス', shampoo: '¥6,000', cut: '¥8,000' },
+  { breed: 'フレンチブルドッグ', shampoo: '¥5,500', cut: null },
+  { breed: 'ボストンテリア', shampoo: '¥5,500', cut: null },
+  { breed: 'イタリアングレイハウンド', shampoo: '¥5,500', cut: null },
+  { breed: 'ミニチュアピンシャー', shampoo: '¥5,500', cut: null },
+  { breed: 'パグ', shampoo: '¥6,000', cut: null },
+  { breed: 'パピヨン', shampoo: '¥6,000', cut: '¥8,000' },
+  { breed: 'ペキニーズ', shampoo: '¥6,000', cut: '¥8,000' },
+  { breed: 'ポメラニアン', shampoo: '¥6,300', cut: '¥8,300' },
+  { breed: 'ヨークシャーテリア', shampoo: '¥6,300', cut: '¥8,800' },
+  { breed: 'マルチーズ', shampoo: '¥6,300', cut: '¥8,800' },
+  { breed: 'ジャックラッセルテリア', shampoo: '¥6,300', cut: '¥8,800' },
+  { breed: 'ウエスティ', shampoo: '¥6,500', cut: '¥9,000' },
+  { breed: 'シーズー', shampoo: '¥6,500', cut: '¥9,000' },
+  { breed: 'トイプードル', shampoo: '¥6,500', cut: '¥9,000' },
+  { breed: 'ミニチュアシュナウザー', shampoo: '¥7,000', cut: '¥9,500' },
+  { breed: 'キャバリア', shampoo: '¥7,000', cut: '¥9,000' },
+  { breed: 'ビションフリーゼ', shampoo: '¥7,500', cut: '¥10,500' },
+  { breed: 'アメリカンコッカースパニエル', shampoo: '¥8,000', cut: '¥11,000' },
+  { breed: '柴', shampoo: '¥8,000', cut: null },
 ]
 
 const optionCategoryData = [
@@ -148,7 +133,6 @@ const CtaBar = () => (
 export default function App() {
   const [scrolled, setScrolled] = useState(false)
   const [openFaq, setOpenFaq] = useState(null)
-  const [openPriceCat, setOpenPriceCat] = useState(null)
   const [openOptionCat, setOpenOptionCat] = useState(null)
   const [conceptOpen, setConceptOpen] = useState(false)
   const [trimmerBioOpen, setTrimmerBioOpen] = useState(false)
@@ -176,7 +160,6 @@ export default function App() {
   }, [])
 
   const toggleFaq = i => setOpenFaq(prev => (prev === i ? null : i))
-  const togglePriceCat = i => setOpenPriceCat(prev => (prev === i ? null : i))
   const toggleOptionCat = i => setOpenOptionCat(prev => (prev === i ? null : i))
 
   return (
@@ -288,7 +271,7 @@ export default function App() {
             <div className="feature-icon">
               <PawIcon className="feature-paw" />
             </div>
-            <p className="feature-heading">この子のペースに寄り添う施術</p>
+            <p className="feature-heading">この子の流れに寄り添う施術</p>
             <p className="feature-text">体調や気分に合わせて、負担の少ない時間を大切にします</p>
           </div>
           <div className="feature-card reveal">
@@ -371,13 +354,16 @@ export default function App() {
               </p>
               <p>
                 だからこそ当店では、人間の都合でトリミングを進めることはいたしません。<br />
-                この子の「いまの流れ」にそっと寄り添い、負担のないやさしい時間を過ごしていただくことを何よりも大切にしています。
+                この子の「いまの流れ」にそっと寄り添い、負担のないやさしい時間を過ごしていただくことを何よりも大切にしています。<br />
+                今日はちょっとお疲れ気味だから、休憩を挟みながら。<br />
+                今日は元気いっぱいだから、たくさんお話ししながら。
               </p>
               <p>飼い主様が想う「かわいい」を一緒に見つけながら、この子のペースで、この子の"いま"に合うスタイルやケアを。</p>
               <p>
                 そして、当店がもうひとつ大切にしているのは、「この子の様子を飼い主様へしっかりとお伝えすること」です。<br />
                 事前の丁寧なカウンセリングはもちろん、お迎えの時には、今日のトリミング中の様子やがんばったこと、気づいた体の変化などをまとめた「トリミングシート」をお渡しいたします。
               </p>
+              <p>変化の大きい子犬期から、デリケートなシニア期まで。 飼い主さまと愛犬にとって、トリミングがやさしく心地いい時間に、当店が安心できる場所になれますように。</p>
               <p>この子それぞれの「このこらしさ」を、一緒に見つけていきましょう。</p>
             </div>
             <button className="concept-toggle" onClick={() => setConceptOpen(p => !p)}>
@@ -422,9 +408,7 @@ export default function App() {
               <h4>資格・受賞歴</h4>
               <ul className="qual-list">
                 <li>愛玩動物飼養管理士1級</li>
-                <li>JKC公認トリマーライセンスC級</li>
-                <li>中国ブロック大会 最優秀技術賞</li>
-                <li>全国大会 技術賞</li>
+                <li>JKC公認トリマーライセンスC級（中国ブロック大会 最優秀技術賞・全国大会 技術賞）</li>
                 <li>ペット栄養管理士</li>
                 <li>マウスケアメンター</li>
                 <li>老犬介護スペシャリスト講習受講</li>
@@ -473,48 +457,35 @@ export default function App() {
             </table>
           </div>
 
+          <p className="menu-small-note reveal">※部分カット4ヶ所以上でシャンプーカット料金になります。</p>
+
           {/* 犬種別料金表 */}
           <h3 className="menu-subtitle reveal">犬種別料金表</h3>
-          <div className="menu-accordion reveal">
-            {priceCategoryData.map((cat, i) => (
-              <div key={i} className={`menu-acc-item${openPriceCat === i ? ' open' : ''}`}>
-                <button className="menu-acc-btn" onClick={() => togglePriceCat(i)}>
-                  <span className="menu-acc-label">{cat.category}</span>
-                  <PawIcon className="menu-acc-paw" />
-                </button>
-                <div className="menu-acc-body">
-                  {cat.breeds.length > 0 ? (
-                    <div style={{ overflowX: 'auto' }}>
-                      <table className="price-table">
-                        <thead>
-                          <tr>
-                            <th>犬種</th>
-                            <th>シャンプーセット</th>
-                            <th>シャンプーカット</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {cat.breeds.map((row, j) => (
-                            <tr key={j}>
-                              <td>{row.breed}</td>
-                              <td className="price-num">{row.shampoo}</td>
-                              {row.cut ? (
-                                <td className="price-num">{row.cut}</td>
-                              ) : (
-                                <td className="price-dash">—</td>
-                              )}
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  ) : (
-                    <p className="menu-acc-note">{cat.note}</p>
-                  )}
-                </div>
-              </div>
-            ))}
+          <div className="reveal" style={{ overflowX: 'auto' }}>
+            <table className="price-table">
+              <thead>
+                <tr>
+                  <th>犬種</th>
+                  <th>シャンプーセット</th>
+                  <th>シャンプーカット</th>
+                </tr>
+              </thead>
+              <tbody>
+                {allBreeds.map((row, j) => (
+                  <tr key={j}>
+                    <td>{row.breed}</td>
+                    <td className="price-num">{row.shampoo}</td>
+                    {row.cut ? (
+                      <td className="price-num">{row.cut}</td>
+                    ) : (
+                      <td className="price-dash">—</td>
+                    )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
+          <p className="menu-small-note reveal">上記に記載のない犬種はお問い合わせください。</p>
 
           {/* オプション */}
           <h3 className="menu-subtitle reveal" style={{ marginTop: '40px' }}>オプション・追加料金</h3>
