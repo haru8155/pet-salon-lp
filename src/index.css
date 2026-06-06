@@ -687,11 +687,14 @@ nav a:hover { color: var(--brown); }
   overflow: hidden;
   opacity: 0;
   padding: 0 0 0 32px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
   transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.3s ease;
 }
 
 .faq-item.open .faq-answer {
-  max-height: 600px;
+  max-height: 1400px;
   opacity: 1;
   padding: 0 0 20px 32px;
 }
@@ -701,15 +704,20 @@ nav a:hover { color: var(--brown); }
   font-size: 16px;
   font-weight: 700;
   color: var(--brown);
-  margin-right: 10px;
+  flex-shrink: 0;
+  line-height: 2;
 }
+
+.faq-a-body { flex: 1; }
 
 .faq-answer p {
   font-size: 14px;
   color: var(--brown-mid);
   line-height: 2;
-  display: inline;
+  margin-bottom: 4px;
 }
+
+.faq-answer p:last-child { margin-bottom: 0; }
 
 /* ===== ACCESS ===== */
 #access {
