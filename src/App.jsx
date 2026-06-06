@@ -359,7 +359,7 @@ export default function App() {
           <span className="section-title-jp">サロンについて</span>
         </div>
         <div className="concept-inner">
-          <img src="/画像/犬アイコン.png" alt="" className="concept-bg-icon" aria-hidden="true" />
+          <img src="/画像/くーちゃん①.jpg" alt="" className="concept-bg-icon" aria-hidden="true" />
           <div className="concept-text reveal">
             <p>はじめまして。Sio grooming（シオ グルーミング）オーナーのshiotaです。</p>
             <p>私はトリマーとして働いてきた中でパピーからシニア犬まで、たくさんのワンちゃんたちと出会い、一頭一頭に違う「心地よいペース」があることを学びました。</p>
@@ -395,7 +395,10 @@ export default function App() {
           <span className="section-title-en">TRIMMER</span>
           <span className="section-title-jp">トリマー紹介</span>
         </div>
-        <div className="trimmer-cards">
+        <div className="trimmer-layout">
+          <div className="trimmer-photo reveal">
+            <img src="/画像/トリマー紹介①.jpg" alt="トリマー shiota" />
+          </div>
           <div className="trimmer-card reveal">
             <div className="trimmer-card-top">
               <PawIcon className="trimmer-deco-paw" />

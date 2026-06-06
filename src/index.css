@@ -1307,18 +1307,33 @@ footer {
   background: var(--beige);
 }
 
-/* ===== TRIMMER CARD (no image) ===== */
+/* ===== TRIMMER LAYOUT (photo left, card right) ===== */
 #trimmer {
   background: var(--beige);
 }
 
-.trimmer-cards {
+.trimmer-layout {
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 40px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 28px;
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+.trimmer-photo {
+  flex: 0 0 300px;
+}
+
+.trimmer-photo img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgba(123, 74, 30, 0.12);
+}
+
+.trimmer-layout .trimmer-card {
+  flex: 1;
 }
 
 .trimmer-card {
@@ -1426,7 +1441,9 @@ footer {
 
   .features-inner { grid-template-columns: 1fr; }
 
-  .trimmer-cards { padding: 0 20px; }
+  .trimmer-layout { flex-direction: column; padding: 0 20px; }
+  .trimmer-photo { flex: none; width: 100%; max-width: 360px; margin: 0 auto; }
+  .trimmer-layout .trimmer-card { width: 100%; }
 
   .menu-shortcut-inner { padding: 0 20px; }
 
@@ -1454,7 +1471,9 @@ footer {
 
   .menu-shortcut-inner { padding: 0 20px; }
 
-  .trimmer-cards { padding: 0 20px; }
+  .trimmer-layout { flex-direction: column; padding: 0 20px; }
+  .trimmer-photo { flex: none; width: 100%; max-width: 360px; margin: 0 auto; }
+  .trimmer-layout .trimmer-card { width: 100%; }
 
   .trimmer-card { padding: 28px 20px; }
 }
