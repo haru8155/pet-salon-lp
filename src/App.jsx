@@ -28,25 +28,21 @@ const allBreeds = [
 
 const optionCategoryData = [
   {
-    category: '被毛・スキンケア',
+    category: 'ケアメニュー',
     items: [
       { name: '香りボリュームシャンプー', price: '＋¥500' },
       { name: '低刺激シャンプー', price: '＋¥500' },
+      { name: '肉球ケア', price: '＋¥500' },
+      { name: 'はみがき', price: '＋¥700' },
       { name: 'りんご泡温浴', price: '＋¥700' },
       { name: 'シルク泡パック', price: '＋¥1,500' },
-    ],
-  },
-  {
-    category: '基本ケア',
-    items: [
-      { name: 'はみがき', price: '＋¥700' },
     ],
   },
   {
     category: 'カット・仕上げ',
     items: [
       { name: 'ヒゲカット', price: '＋¥500' },
-      { name: '足先バリカン', price: '＋¥500' },
+      { name: 'プー足', price: '＋¥500' },
       { name: 'デザインカット', price: '＋¥1,000〜' },
       { name: 'オールシザー', price: '＋¥1,500〜' },
     ],
