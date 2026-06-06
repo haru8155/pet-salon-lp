@@ -133,6 +133,7 @@ const CtaBar = () => (
 export default function App() {
   const [scrolled, setScrolled] = useState(false)
   const [openFaq, setOpenFaq] = useState(null)
+  const [openBreedTable, setOpenBreedTable] = useState(false)
   const [openOptionCat, setOpenOptionCat] = useState(null)
   const [conceptOpen, setConceptOpen] = useState(false)
   const [trimmerBioOpen, setTrimmerBioOpen] = useState(false)
@@ -461,31 +462,41 @@ export default function App() {
 
           {/* 犬種別料金表 */}
           <h3 className="menu-subtitle reveal">犬種別料金表</h3>
-          <div className="reveal" style={{ overflowX: 'auto' }}>
-            <table className="price-table">
-              <thead>
-                <tr>
-                  <th>犬種</th>
-                  <th>シャンプーセット</th>
-                  <th>シャンプーカット</th>
-                </tr>
-              </thead>
-              <tbody>
-                {allBreeds.map((row, j) => (
-                  <tr key={j}>
-                    <td>{row.breed}</td>
-                    <td className="price-num">{row.shampoo}</td>
-                    {row.cut ? (
-                      <td className="price-num">{row.cut}</td>
-                    ) : (
-                      <td className="price-dash">—</td>
-                    )}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="menu-accordion reveal">
+            <div className={`menu-acc-item${openBreedTable ? ' open' : ''}`}>
+              <button className="menu-acc-btn" onClick={() => setOpenBreedTable(p => !p)}>
+                <span className="menu-acc-label">犬種別料金一覧</span>
+                <PawIcon className="menu-acc-paw" />
+              </button>
+              <div className="menu-acc-body">
+                <div style={{ overflowX: 'auto' }}>
+                  <table className="price-table">
+                    <thead>
+                      <tr>
+                        <th>犬種</th>
+                        <th>シャンプーセット</th>
+                        <th>シャンプーカット</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {allBreeds.map((row, j) => (
+                        <tr key={j}>
+                          <td>{row.breed}</td>
+                          <td className="price-num">{row.shampoo}</td>
+                          {row.cut ? (
+                            <td className="price-num">{row.cut}</td>
+                          ) : (
+                            <td className="price-dash">—</td>
+                          )}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <p className="menu-acc-note">上記に記載のない犬種はお問い合わせください。</p>
+              </div>
+            </div>
           </div>
-          <p className="menu-small-note reveal">上記に記載のない犬種はお問い合わせください。</p>
 
           {/* オプション */}
           <h3 className="menu-subtitle reveal" style={{ marginTop: '40px' }}>オプション・追加料金</h3>
