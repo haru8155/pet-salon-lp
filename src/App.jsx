@@ -119,14 +119,6 @@ const faqData = [
   },
 ]
 
-const GalleryIcon = () => (
-  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-    <rect x="6" y="10" width="36" height="28" rx="4" stroke="#7B5C3A" strokeWidth="2" />
-    <circle cx="24" cy="24" r="8" stroke="#7B5C3A" strokeWidth="2" />
-    <circle cx="35" cy="13" r="2.5" fill="#7B5C3A" />
-  </svg>
-)
-
 const PawIcon = ({ className }) => (
   <svg className={className} width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
     <ellipse cx="16" cy="21" rx="7" ry="5.5" />
@@ -321,17 +313,26 @@ export default function App() {
       <section id="gallery">
         <div className="section-header reveal">
           <span className="section-title-en">GALLERY</span>
-          <span className="section-title-jp">インスタグラム</span>
+          <span className="section-title-jp">仕上がりギャラリー</span>
         </div>
         <div className="gallery-inner">
+          <p className="gallery-lead reveal">その子らしさを大切にした、やさしい仕上がりを心がけています。</p>
           <div className="gallery-grid reveal">
-            {[...Array(6)].map((_, i) => (
-              <div className="gallery-placeholder" key={i}>
-                <GalleryIcon />
-              </div>
-            ))}
+            <div className="gallery-photo">
+              <img src="/画像/gallery-1.jpg" alt="トリミング仕上がり写真" />
+            </div>
+            <div className="gallery-photo">
+              <img src="/画像/gallery-2.jpg" alt="トリミング仕上がり写真" />
+            </div>
+            <div className="gallery-photo">
+              <img src="/画像/gallery-3.jpg" alt="トリミング仕上がり写真" />
+            </div>
+            <div className="gallery-photo">
+              <img src="/画像/gallery-4.jpg" alt="トリミング仕上がり写真" />
+            </div>
           </div>
           <div className="gallery-cta reveal">
+            <p className="gallery-cta-text">日々の仕上がりはInstagramでもご紹介しています。</p>
             <a
               href="https://www.instagram.com/sio_grooming"
               target="_blank"
@@ -343,7 +344,7 @@ export default function App() {
                 <circle cx="12" cy="12" r="5" />
                 <circle cx="17.5" cy="6.5" r="1.5" fill="#7B4A1E" stroke="none" />
               </svg>
-              Instagramをフォローする　@sio_grooming
+              詳しくはInstagramへ
             </a>
           </div>
         </div>
