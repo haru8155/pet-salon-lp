@@ -288,7 +288,7 @@ export default function App() {
               <PawIcon className="feature-paw" />
             </div>
             <p className="feature-heading">この子の流れに寄り添う施術</p>
-            <p className="feature-text">体調や気分に合わせて、負担の少ない時間を大切にします</p>
+            <p className="feature-text">体調や気分、この子の性格に合わせて負担の少ない時間を大切にします</p>
           </div>
           <div className="feature-card reveal">
             <div className="feature-icon">
@@ -302,7 +302,7 @@ export default function App() {
               <PawIcon className="feature-paw" />
             </div>
             <p className="feature-heading">学び続ける専門的なケア</p>
-            <p className="feature-text">体調や気分、この子の性格に合わせて負担の少ない時間を大切にします</p>
+            <p className="feature-text">栄養・マウスケア・老犬介護まで、幅広い知識でサポートします</p>
           </div>
         </div>
       </section>
