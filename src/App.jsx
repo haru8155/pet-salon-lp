@@ -47,7 +47,7 @@ const optionCategoryData = [
     items: [
       { name: 'ヒゲカット', price: '＋¥500' },
       { name: 'プー足', price: '＋¥500' },
-      { name: '部分カット', price: '＋¥550' },
+      { name: '部分カット', price: '＋¥500' },
       { name: 'デザインカット', price: '＋¥1,000〜' },
       { name: 'オールシザー', price: '＋¥1,500〜' },
     ],
@@ -302,7 +302,7 @@ export default function App() {
               <PawIcon className="feature-paw" />
             </div>
             <p className="feature-heading">学び続ける専門的なケア</p>
-            <p className="feature-text">栄養・マウスケア・老犬介護まで、幅広い知識でサポートします</p>
+            <p className="feature-text">体調や気分、この子の性格に合わせて負担の少ない時間を大切にします</p>
           </div>
         </div>
       </section>
@@ -362,15 +362,16 @@ export default function App() {
           <img src="/画像/犬アイコン.png" alt="" className="concept-bg-icon" aria-hidden="true" />
           <div className="concept-text reveal">
             <p>はじめまして。Sio grooming（シオ グルーミング）オーナーのshiotaです。</p>
-            <p>私はトリマーとして働いてきた中でパピーからシニア犬まで、たくさんのワンちゃんたちと出会い、一頭一頭に違う「心地よいペース」があることを学びました。</p>
+            <p>私はトリマーとして働いてきた中でパピーからシニア犬まで、たくさんのわんちゃんたちと出会い、一頭一頭に違う「心地よいペース」があることを学びました。</p>
             <div className={`concept-expandable${conceptOpen ? ' open' : ''}`}>
               <p>
                 サロン名である「Sio（しお）」には、日本語の「潮」の意味も込められています。<br />
-                海の潮が太陽や月に導かれ満ち引きするように、ワンちゃんの体調や心の波も、毎日少しずつ変化するものです。
+                海の潮が太陽や月に導かれ満ち引きするように、わんちゃんの体調や心の波も、毎日少しずつ変化するものです。
               </p>
               <p>
                 だからこそ当店では、人間の都合でトリミングを進めることはいたしません。<br />
                 この子の「いまの流れ」にそっと寄り添い、負担のないやさしい時間を過ごしていただくことを何よりも大切にしています。<br />
+                <br />
                 今日はちょっとお疲れ気味だから、休憩を挟みながら。<br />
                 今日は元気いっぱいだから、たくさんお話ししながら。
               </p>
@@ -380,7 +381,7 @@ export default function App() {
                 事前の丁寧なカウンセリングはもちろん、お迎えの時には、今日のトリミング中の様子やがんばったこと、気づいた体の変化などをまとめた「トリミングシート」をお渡しいたします。
               </p>
               <p>変化の大きい子犬期から、デリケートなシニア期まで。 飼い主さまと愛犬にとって、トリミングがやさしく心地いい時間に、当店が安心できる場所になれますように。</p>
-              <p>この子それぞれの「このこらしさ」を、一緒に見つけていきましょう。</p>
+              <p>それぞれの「このこらしさ」を、一緒に見つけていきましょう。</p>
             </div>
             <button className="concept-toggle" onClick={() => setConceptOpen(p => !p)}>
               {conceptOpen ? '閉じる' : 'もっと見る'}
@@ -470,7 +471,7 @@ export default function App() {
               <tbody>
                 <tr>
                   <td>シャンプーセット</td>
-                  <td style={{ textAlign: 'left' }}>シャンプー、ブロー、爪切り、耳掃除、肛門腺絞り</td>
+                  <td style={{ textAlign: 'left' }}>シャンプー、ブロー、爪切り・爪やすり、耳掃除、肛門腺絞り、足裏バリカン</td>
                 </tr>
                 <tr>
                   <td>シャンプーカット</td>
@@ -479,8 +480,6 @@ export default function App() {
               </tbody>
             </table>
           </div>
-
-          <p className="menu-small-note reveal">※部分カット4ヶ所以上でシャンプーカット料金になります。</p>
 
           {/* 犬種別料金表 */}
           <h3 className="menu-subtitle reveal">犬種別料金表</h3>
@@ -515,7 +514,7 @@ export default function App() {
                     </tbody>
                   </table>
                 </div>
-                <p className="menu-acc-note">※当店は小型犬・中型犬専門のトリミングサロンです。上記に記載のない犬種やミックス犬の料金はお問い合わせください。<br />※持病のある子、シニア犬（13歳以上）はトリミングが負担になる場合もありますので事前にご相談ください。</p>
+                <p className="menu-acc-note">※当店は小型犬・中型犬専門のトリミングサロンです。上記に記載のない犬種やミックス犬の料金はお問い合わせください。<br />※部分カット4ヶ所以上でシャンプーカット料金になります。<br />※持病のある子、シニア犬（10歳以上）はトリミングが負担になる場合もありますので事前にご相談ください。</p>
               </div>
             </div>
           </div>
