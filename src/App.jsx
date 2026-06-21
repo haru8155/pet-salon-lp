@@ -368,14 +368,6 @@ export default function App() {
               </svg>
               詳しくはInstagramへ
             </a>
-            <a
-              href="https://www.instagram.com/sio_grooming"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="gallery-instagram-url"
-            >
-              https://www.instagram.com/sio_grooming
-            </a>
           </div>
         </div>
       </section>
