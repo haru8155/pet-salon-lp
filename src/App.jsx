@@ -36,10 +36,10 @@ const optionCategoryData = [
       { name: '香りボリュームシャンプー', price: '＋¥500' },
       { name: '低刺激シャンプー', price: '＋¥500' },
       { name: '肉球ケア', price: '＋¥500' },
-      { name: 'はみがき', price: '＋¥700' },
-      { name: 'りんご泡温浴', price: '＋¥700' },
-      { name: 'シルク泡パック', price: '＋¥1,500' },
-      { name: '泡あわパックセット（りんご泡温浴、シルク泡パック）', price: '＋¥2,000' },
+      { name: 'はみがき', price: '＋¥700', note: '※初回は追加で歯ブラシ購入or持参' },
+      { name: 'りんご泡温浴', price: '＋¥800', note: '※小型犬のみ' },
+      { name: 'シルク泡パック', price: '＋¥1,500〜' },
+      { name: '泡あわパックセット（りんご泡温浴、シルク泡パック）', price: '＋¥2,000', note: '※小型犬のみ' },
     ],
   },
   {
@@ -47,7 +47,7 @@ const optionCategoryData = [
     items: [
       { name: 'ヒゲカット', price: '＋¥500' },
       { name: 'プー足', price: '＋¥500' },
-      { name: '部分カット', price: '＋¥500' },
+      { name: '部分カット', price: '＋¥500〜' },
       { name: 'デザインカット', price: '＋¥1,000〜' },
       { name: 'オールシザー', price: '＋¥1,500〜' },
     ],
@@ -515,7 +515,7 @@ export default function App() {
                     </tbody>
                   </table>
                 </div>
-                <p className="menu-acc-note">※当店は小型犬・中型犬専門のトリミングサロンです。上記に記載のない犬種やミックス犬の料金はお問い合わせください。<br />※部分カット4ヶ所以上でシャンプーカット料金になります。<br />※持病のある子、シニア犬（10歳以上）はトリミングが負担になる場合もありますので事前にご相談ください。</p>
+                <p className="menu-acc-note">※上記は標準のサイズでの料金です。状態により追加料金がかかる場合があります。<br />※当店は小型犬・中型犬専門のトリミングサロンです。上記に記載のない犬種やミックス犬の料金はお問い合わせください。<br />※部分カット4ヶ所以上でシャンプーカット料金になります。<br />※持病のある子、シニア犬（10歳以上）はトリミングが負担になる場合もありますので事前にご相談ください。</p>
               </div>
             </div>
           </div>
@@ -544,8 +544,11 @@ export default function App() {
                     <div className="option-grid">
                       {cat.items.map((item, j) => (
                         <div className="option-item" key={j}>
-                          <span className="option-name">{item.name}</span>
-                          <span className="option-price">{item.price}</span>
+                          <div className="option-item-row">
+                            <span className="option-name">{item.name}</span>
+                            <span className="option-price">{item.price}</span>
+                          </div>
+                          {item.note && <span className="option-item-note">{item.note}</span>}
                         </div>
                       ))}
                     </div>
