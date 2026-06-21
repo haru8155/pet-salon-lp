@@ -137,6 +137,15 @@ const CtaBar = () => (
   </div>
 )
 
+const galleryImages = [
+  { src: '/画像/gallery-1.jpg', alt: 'トリミング仕上がり写真' },
+  { src: '/画像/gallery-2.jpg', alt: 'トリミング仕上がり写真' },
+  { src: '/画像/gallery-3.jpg', alt: 'トリミング仕上がり写真' },
+  { src: '/画像/gallery-4.jpg', alt: 'トリミング仕上がり写真' },
+  { src: '/画像/gallery-5.jpg', alt: 'トリミング仕上がり写真' },
+  { src: '/画像/gallery-6.jpg', alt: 'トリミング仕上がり写真' },
+]
+
 export default function App() {
   const [scrolled, setScrolled] = useState(false)
   const [openFaq, setOpenFaq] = useState(null)
@@ -144,6 +153,7 @@ export default function App() {
   const [openOptionCat, setOpenOptionCat] = useState(null)
   const [conceptOpen, setConceptOpen] = useState(false)
   const [trimmerBioOpen, setTrimmerBioOpen] = useState(false)
+  const [lightboxIndex, setLightboxIndex] = useState(null)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60)
@@ -166,6 +176,17 @@ export default function App() {
     els.forEach(el => observer.observe(el))
     return () => observer.disconnect()
   }, [])
+
+  useEffect(() => {
+    if (lightboxIndex === null) {
+      document.body.style.overflow = ''
+      return
+    }
+    document.body.style.overflow = 'hidden'
+    const handleKey = e => { if (e.key === 'Escape') setLightboxIndex(null) }
+    document.addEventListener('keydown', handleKey)
+    return () => document.removeEventListener('keydown', handleKey)
+  }, [lightboxIndex])
 
   const toggleFaq = i => setOpenFaq(prev => (prev === i ? null : i))
   const toggleOptionCat = i => setOpenOptionCat(prev => (prev === i ? null : i))
@@ -318,18 +339,19 @@ export default function App() {
         <div className="gallery-inner">
           <p className="gallery-lead reveal">その子らしさを大切にした、やさしい仕上がりを心がけています。</p>
           <div className="gallery-grid reveal">
-            <div className="gallery-photo">
-              <img src="/画像/gallery-1.jpg" alt="トリミング仕上がり写真" />
-            </div>
-            <div className="gallery-photo">
-              <img src="/画像/gallery-2.jpg" alt="トリミング仕上がり写真" />
-            </div>
-            <div className="gallery-photo">
-              <img src="/画像/gallery-3.jpg" alt="トリミング仕上がり写真" />
-            </div>
-            <div className="gallery-photo">
-              <img src="/画像/gallery-4.jpg" alt="トリミング仕上がり写真" />
-            </div>
+            {galleryImages.map((img, i) => (
+              <div
+                className="gallery-photo"
+                key={i}
+                onClick={() => setLightboxIndex(i)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={e => e.key === 'Enter' && setLightboxIndex(i)}
+                aria-label={`ギャラリー画像${i + 1}を拡大`}
+              >
+                <img src={img.src} alt={img.alt} />
+              </div>
+            ))}
           </div>
           <div className="gallery-cta reveal">
             <p className="gallery-cta-text">日々の仕上がりはInstagramでもご紹介しています。</p>
@@ -345,6 +367,14 @@ export default function App() {
                 <circle cx="17.5" cy="6.5" r="1.5" fill="#7B4A1E" stroke="none" />
               </svg>
               詳しくはInstagramへ
+            </a>
+            <a
+              href="https://www.instagram.com/sio_grooming"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="gallery-instagram-url"
+            >
+              https://www.instagram.com/sio_grooming
             </a>
           </div>
         </div>
@@ -739,6 +769,19 @@ export default function App() {
         </div>
         <p className="footer-copy">© 2025 Sio grooming All Rights Reserved.</p>
       </footer>
+
+      {/* LIGHTBOX */}
+      {lightboxIndex !== null && (
+        <div className="lightbox-overlay" onClick={() => setLightboxIndex(null)}>
+          <button className="lightbox-close" onClick={() => setLightboxIndex(null)} aria-label="閉じる">×</button>
+          <img
+            src={galleryImages[lightboxIndex].src}
+            alt={galleryImages[lightboxIndex].alt}
+            className="lightbox-img"
+            onClick={e => e.stopPropagation()}
+          />
+        </div>
+      )}
     </>
   )
 }
