@@ -197,7 +197,7 @@ export default function App() {
       <header id="site-header" className={scrolled ? 'scrolled' : ''}>
         <div className="nav-logo">
           <a href="#hero">
-            <img src="/画像/ロゴのみ.png" alt="Sio grooming" />
+            <img src="/画像/ロゴのみ-transparent.png" alt="Sio grooming" />
           </a>
         </div>
         <nav>
@@ -709,7 +709,7 @@ export default function App() {
 <div className="footer-inner">
           <div className="footer-left">
             <div className="footer-logo">
-              <img src="/画像/ロゴのみ.png" alt="Sio grooming" />
+              <img src="/画像/ロゴのみ-transparent.png" alt="Sio grooming" />
             </div>
             <p className="footer-catch">やさしく　かわいく　このこらしく、</p>
             <div className="footer-contact-item">
