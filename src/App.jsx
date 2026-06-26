@@ -242,14 +242,14 @@ export default function App() {
             </a>
             <a href="#trimmer" className="snav-item hero-snav-item" style={{ animationDelay: '1.2s' }}>
               <div className="snav-icon">
-                <img src="/画像/トリマーアイコン.png" alt="トリマー紹介" />
+                <img src="/画像/トリマーアイコン-transparent.png" alt="トリマー紹介" />
               </div>
               <span className="snav-en">TRIMMER</span>
               <span className="snav-jp">トリマー紹介</span>
             </a>
             <a href="#menu" className="snav-item hero-snav-item" style={{ animationDelay: '1.35s' }}>
               <div className="snav-icon">
-                <img src="/画像/シザース.png" alt="トリミング" />
+                <img src="/画像/シザース-transparent.png" alt="トリミング" />
               </div>
               <span className="snav-en">TRIMMING</span>
               <span className="snav-jp">トリミング</span>
