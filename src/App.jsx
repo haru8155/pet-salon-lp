@@ -694,7 +694,7 @@ export default function App() {
           </div>
           <div className="access-map reveal">
             <iframe
-              src="https://maps.google.com/maps?q=%E5%B2%A1%E5%B1%B1%E7%9C%8C%E7%80%AC%E6%88%B8%E5%86%85%E5%B8%82%E9%82%91%E4%B9%85%E7%94%BA%E8%B1%86%E7%94%B1598-2&z=15&output=embed"
+              src="https://maps.google.com/maps?q=34.6924543,134.0855008&z=16&output=embed"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Sio grooming アクセスマップ"
