@@ -693,6 +693,13 @@ export default function App() {
             </a>
           </div>
           <div className="access-map reveal">
+            <a
+              href="https://maps.app.goo.gl/LHoVSyuG3k2b5s478"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="access-map-overlay"
+              aria-label="Sio grooming Googleビジネスプロフィールを開く"
+            />
             <iframe
               src="https://maps.google.com/maps?q=34.6924543,134.0855008&z=16&output=embed"
               loading="lazy"

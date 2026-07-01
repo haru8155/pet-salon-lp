@@ -902,6 +902,15 @@ nav a:hover { color: var(--brown); }
 
 .access-map {
   flex: 0 0 380px;
+  position: relative;
+}
+
+.access-map-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  cursor: pointer;
 }
 
 .access-map iframe {
