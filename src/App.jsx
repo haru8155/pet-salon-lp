@@ -48,8 +48,8 @@ const optionCategoryData = [
       { name: 'ヒゲカット', price: '＋¥500' },
       { name: 'プー足', price: '＋¥500' },
       { name: '部分カット', price: '＋¥500〜' },
-      { name: 'デザインカット', price: '＋¥1,000〜' },
-      { name: 'オールシザー', price: '＋¥1,500〜' },
+      { name: 'デザインカット', price: '＋¥1,500〜', note: '※香りボリュームシャンプー込み' },
+      { name: 'オールシザー', price: '＋¥1,500〜', note: '※香りボリュームシャンプー込み' },
     ],
   },
   {
@@ -668,6 +668,10 @@ export default function App() {
                 <tr>
                   <th>定休日</th>
                   <td>月・水・金（臨時営業あり）</td>
+                </tr>
+                <tr>
+                  <th>支払い方法</th>
+                  <td>現金・クレジットカード・PayPay</td>
                 </tr>
               </tbody>
             </table>
