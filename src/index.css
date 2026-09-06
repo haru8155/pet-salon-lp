@@ -490,6 +490,16 @@ nav a:hover { color: var(--brown); }
   margin-bottom: 8px;
 }
 
+.option-grid-compact {
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.option-grid-compact .option-item-row {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
 .option-item {
   background: var(--white);
   border-radius: 8px;
@@ -555,6 +565,24 @@ nav a:hover { color: var(--brown); }
   width: 16px;
   height: 16px;
 }
+
+.option-footer-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.option-footer-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--brown-mid);
+  line-height: 1.5;
+}
+
+.option-footer-note p { margin: 0; }
 
 .terms-link-btn {
   display: inline-flex;

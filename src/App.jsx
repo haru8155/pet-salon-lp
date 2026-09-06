@@ -65,14 +65,21 @@ const optionCategoryData = [
   },
   {
     category: '単品メニュー：半年以内に当店でシャンプーセット・シャンプーカットをご利用の方のみ',
+    compact: true,
     items: [
-      { name: '耳掃除・耳毛切り・爪切り／爪やすり・肛門腺しぼり・部分バリカン（足裏・肛門・お腹）・足回りカット', price: '各¥700' },
+      { name: '耳掃除', price: '¥700' },
+      { name: '耳毛切り', price: '¥700' },
+      { name: '爪切り', price: '¥700' },
+      { name: '爪やすり', price: '¥700' },
+      { name: '肛門腺しぼり', price: '¥700' },
+      { name: '部分バリカン（足裏・肛門・お腹）', price: '¥700' },
+      { name: '足回りカット', price: '¥700' },
       { name: '足先バリカン', price: '¥1,400' },
       { name: '部分カット1箇所', price: '¥700〜' },
     ],
     footerNotes: [
-      '※顔カットなど、かかる時間によって変動する場合がございます。',
-      '※全て税込価格です。',
+      '顔カットなど、かかる時間によって変動する場合がございます。',
+      '全て税込価格です。',
     ],
   },
   {
@@ -577,7 +584,7 @@ export default function App() {
                     </div>
                   ) : (
                     <>
-                      <div className="option-grid">
+                      <div className={`option-grid${cat.compact ? ' option-grid-compact' : ''}`}>
                         {cat.items.map((item, j) => (
                           <div className="option-item" key={j}>
                             <div className="option-item-row">
@@ -588,9 +595,16 @@ export default function App() {
                           </div>
                         ))}
                       </div>
-                      {cat.footerNotes && cat.footerNotes.map((note, j) => (
-                        <p className="menu-acc-note" key={j}>{note}</p>
-                      ))}
+                      {cat.footerNotes && (
+                        <div className="option-footer-notes">
+                          {cat.footerNotes.map((note, j) => (
+                            <div className="option-footer-note" key={j}>
+                              <PawIcon className="option-note-paw" />
+                              <p>{note}</p>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </>
                   )}
                 </div>
