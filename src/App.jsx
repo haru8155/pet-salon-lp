@@ -36,6 +36,7 @@ const optionCategoryData = [
       { name: '香りボリュームシャンプー', price: '＋¥500' },
       { name: '低刺激シャンプー', price: '＋¥500' },
       { name: '肉球ケア', price: '＋¥500' },
+      { name: '抜け毛取り（レーキング）', price: '＋¥1,000〜／10分' },
       { name: 'はみがき', price: '＋¥700', note: '※初回は追加で歯ブラシ購入or持参' },
       { name: 'りんご泡温浴', price: '＋¥800', note: '※小型犬のみ' },
       { name: 'シルク泡パック', price: '＋¥1,500〜' },
@@ -46,7 +47,7 @@ const optionCategoryData = [
     category: 'カット・仕上げ',
     items: [
       { name: 'ヒゲカット', price: '＋¥500' },
-      { name: 'プー足', price: '＋¥500' },
+      { name: '足先バリカン', price: '＋¥700' },
       { name: '部分カット', price: '＋¥500〜' },
       { name: 'デザインカット', price: '＋¥1,500〜', note: '※香りボリュームシャンプー込み' },
       { name: 'オールシザー', price: '＋¥1,500〜', note: '※香りボリュームシャンプー込み' },
@@ -63,10 +64,22 @@ const optionCategoryData = [
     ],
   },
   {
+    category: '単品メニュー：半年以内に当店でシャンプーセット・シャンプーカットをご利用の方のみ',
+    items: [
+      { name: '耳掃除・耳毛切り・爪切り／爪やすり・肛門腺しぼり・部分バリカン（足裏・肛門・お腹）・足回りカット', price: '各¥700' },
+      { name: '足先バリカン', price: '¥1,400' },
+      { name: '部分カット1箇所', price: '¥700〜' },
+    ],
+    footerNotes: [
+      '※顔カットなど、かかる時間によって変動する場合がございます。',
+      '※全て税込価格です。',
+    ],
+  },
+  {
     category: 'その他注意事項',
     notes: [
       '初回は混合ワクチン（3年以内）および狂犬病ワクチン（1年以内）の接種証明書のご提示をお願いしております。',
-      '衛生管理のため、すべてのわんちゃんにマナーパンツの着用をお願いしております。替え用として2〜3枚ご持参ください。当店でも1枚100円で販売しております。',
+      '衛生管理のため、すべてのわんちゃんにマナーパンツの着用をお願いしております。替え用として2〜3枚ご持参ください。当店でも1枚100円で販売しております。※マナーパンツが苦手な子はご相談ください',
       'トリミングが少しでも楽しい時間となるよう、お気に入りのおやつやフードのご持参をおすすめしております（🐾当店でも販売しております。）',
     ],
   },
@@ -131,7 +144,7 @@ const PawIcon = ({ className }) => (
 
 const CtaBar = () => (
   <div className="cta-bar">
-    <a href="https://lin.ee/6y99Pzi" target="_blank" rel="noopener noreferrer" className="btn-reserve cta-bar-btn">
+    <a href="https://lin.ee/6y99Pzi" target="_blank" rel="noopener noreferrer" className="btn-reserve cta-bar-btn" data-gtm="reservation">
       ご予約はこちら
     </a>
   </div>
@@ -206,7 +219,7 @@ export default function App() {
           <a href="#trimmer">トリマー紹介</a>
           <a href="#menu">トリミング</a>
           <a href="#faq">よくある質問</a>
-          <a href="https://lin.ee/6y99Pzi" target="_blank" rel="noopener noreferrer" className="btn-reserve">ご予約はこちら</a>
+          <a href="https://lin.ee/6y99Pzi" target="_blank" rel="noopener noreferrer" className="btn-reserve" data-gtm="reservation">ご予約はこちら</a>
         </nav>
       </header>
 
@@ -563,17 +576,22 @@ export default function App() {
                       <a href="/terms.html" className="terms-link-btn">詳しくは利用規約をご覧ください</a>
                     </div>
                   ) : (
-                    <div className="option-grid">
-                      {cat.items.map((item, j) => (
-                        <div className="option-item" key={j}>
-                          <div className="option-item-row">
-                            <span className="option-name">{item.name}</span>
-                            <span className="option-price">{item.price}</span>
+                    <>
+                      <div className="option-grid">
+                        {cat.items.map((item, j) => (
+                          <div className="option-item" key={j}>
+                            <div className="option-item-row">
+                              <span className="option-name">{item.name}</span>
+                              <span className="option-price">{item.price}</span>
+                            </div>
+                            {item.note && <span className="option-item-note">{item.note}</span>}
                           </div>
-                          {item.note && <span className="option-item-note">{item.note}</span>}
-                        </div>
+                        ))}
+                      </div>
+                      {cat.footerNotes && cat.footerNotes.map((note, j) => (
+                        <p className="menu-acc-note" key={j}>{note}</p>
                       ))}
-                    </div>
+                    </>
                   )}
                 </div>
               </div>
@@ -630,6 +648,7 @@ export default function App() {
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ color: 'var(--brown)', textDecoration: 'underline' }}
+                  data-gtm="reservation"
                 >
                   友だち追加してご予約ください
                 </a>
