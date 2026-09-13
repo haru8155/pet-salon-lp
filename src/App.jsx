@@ -64,24 +64,6 @@ const optionCategoryData = [
     ],
   },
   {
-    category: '単品メニュー',
-    compact: true,
-    items: [
-      { name: '耳掃除', price: '¥700' },
-      { name: '耳毛切り', price: '¥700' },
-      { name: '爪切り・爪やすり', price: '¥700' },
-      { name: '肛門腺しぼり', price: '¥700' },
-      { name: '部分バリカン（足裏・肛門・お腹）', price: '各¥700〜' },
-      { name: '足回りカット', price: '¥700' },
-      { name: '足先バリカン', price: '¥1,400' },
-      { name: '部分カット1箇所', price: '¥700〜' },
-    ],
-    footerNotes: [
-      '半年以内に当店でシャンプーセット・シャンプーカットをご利用の方のみ',
-      '全て税込価格です。',
-    ],
-  },
-  {
     category: 'その他注意事項',
     notes: [
       '初回は混合ワクチン（3年以内）および狂犬病ワクチン（1年以内）の接種証明書のご提示をお願いしております。',
@@ -90,6 +72,25 @@ const optionCategoryData = [
     ],
   },
 ]
+
+const singleMenuData = {
+  category: '単品メニュー',
+  compact: true,
+  items: [
+    { name: '耳掃除', price: '¥700' },
+    { name: '耳毛切り', price: '¥700' },
+    { name: '爪切り・爪やすり', price: '¥700' },
+    { name: '肛門腺しぼり', price: '¥700' },
+    { name: '部分バリカン（足裏・肛門・お腹）', price: '各¥700〜' },
+    { name: '足回りカット', price: '¥700' },
+    { name: '足先バリカン', price: '¥1,400' },
+    { name: '部分カット1箇所', price: '¥700〜' },
+  ],
+  footerNotes: [
+    '半年以内に当店でシャンプーセット・シャンプーカットをご利用の方のみが対象です',
+    '全て税込価格です。',
+  ],
+}
 
 const faqData = [
   {
@@ -170,6 +171,7 @@ export default function App() {
   const [openFaq, setOpenFaq] = useState(null)
   const [openBreedTable, setOpenBreedTable] = useState(false)
   const [openOptionCat, setOpenOptionCat] = useState(null)
+  const [openSingleMenu, setOpenSingleMenu] = useState(false)
   const [conceptOpen, setConceptOpen] = useState(false)
   const [trimmerBioOpen, setTrimmerBioOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(null)
@@ -609,6 +611,40 @@ export default function App() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* 単品メニュー */}
+          <h3 className="menu-subtitle reveal" style={{ marginTop: '40px' }}>単品メニュー</h3>
+          <div className="menu-accordion reveal">
+            <div className={`menu-acc-item${openSingleMenu ? ' open' : ''}`}>
+              <button className="menu-acc-btn" onClick={() => setOpenSingleMenu(p => !p)}>
+                <span className="menu-acc-label">{singleMenuData.category}</span>
+                <PawIcon className="menu-acc-paw" />
+              </button>
+              <div className="menu-acc-body">
+                <div className={`option-grid${singleMenuData.compact ? ' option-grid-compact' : ''}`}>
+                  {singleMenuData.items.map((item, j) => (
+                    <div className="option-item" key={j}>
+                      <div className="option-item-row">
+                        <span className="option-name">{item.name}</span>
+                        <span className="option-price">{item.price}</span>
+                      </div>
+                      {item.note && <span className="option-item-note">{item.note}</span>}
+                    </div>
+                  ))}
+                </div>
+                {singleMenuData.footerNotes && (
+                  <div className="option-footer-notes">
+                    {singleMenuData.footerNotes.map((note, j) => (
+                      <div className="option-footer-note" key={j}>
+                        <PawIcon className="option-note-paw" />
+                        <p>{note}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
 
         </div>
