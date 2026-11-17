@@ -853,6 +853,61 @@ nav a:hover { color: var(--brown); }
   padding: 90px 0;
 }
 
+/* 空き枠カレンダー */
+.availability {
+  max-width: 1000px;
+  margin: 0 auto 48px;
+  padding: 0 40px;
+  scroll-margin-top: 86px; /* 固定ヘッダー(70px)分 */
+}
+
+.availability-title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--brown);
+  letter-spacing: 0.05em;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.availability-lead {
+  font-size: 14px;
+  color: var(--brown-dark);
+  line-height: 1.8;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.availability-frame {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.availability-frame iframe {
+  display: block;
+  width: 100%;
+  height: 500px;
+}
+
+.availability-open-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--brown);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.availability-open-link:hover { opacity: 0.8; }
+
+.access-calendar-link {
+  color: var(--brown);
+  text-decoration: underline;
+}
+
 .access-inner {
   max-width: 1000px;
   margin: 0 auto;
@@ -1597,6 +1652,8 @@ footer {
 
   .access-map { flex: none; width: 100%; }
 
+  .availability { padding: 0 20px; }
+
   .footer-inner { flex-direction: column; }
 
   .gallery-inner { padding: 0 20px; }
@@ -1617,5 +1674,7 @@ footer {
   .menu-shortcut-inner { padding: 0 20px; }
 
   .trimmer-card { padding: 28px 20px; }
+
+  .availability-frame iframe { height: 440px; }
 }
 

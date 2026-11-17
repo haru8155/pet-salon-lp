@@ -157,6 +157,9 @@ const CtaBar = () => (
   </div>
 )
 
+const AVAILABILITY_CALENDAR_URL =
+  'https://calendar.google.com/calendar/embed?height=500&wkst=2&ctz=Asia/Tokyo&showPrint=0&showTz=0&showCalendars=0&showTabs=0&showTitle=0&src=M2NkMDM2OWU0NmY0YzhmYjY0ZjYxZTRhNjMwY2RiZmYyZjc5ZWUwMDIxYjBkYmUxMDVlMzViNjM1OTZmYjNmMkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=MTM2OWUyZmE1Mzk2NzE4ZDU2ZDg1MDgyZTc2YTMwNTBmNzY4ZjdlYTI5NGU0OWI5MDBkOGI0YjI3ZTA1NDQ4MkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=MDVkMGUzYzgzOWNlZDFjYWExNmNkNjdjYjU1ZTIxZTkwMjY1MDMxYWJlODdjYjk1NWNjNGE2YzNkOWVmNGViMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23a79b8e&color=%23e67c73&color=%23c0ca33'
+
 const galleryImages = [
   { src: '/画像/gallery-1.jpg', alt: 'トリミング仕上がり写真' },
   { src: '/画像/gallery-2.jpg', alt: 'トリミング仕上がり写真' },
@@ -227,7 +230,7 @@ export default function App() {
           <a href="#trimmer">トリマー紹介</a>
           <a href="#menu">トリミング</a>
           <a href="#faq">よくある質問</a>
-          <a href="https://lin.ee/6y99Pzi" target="_blank" rel="noopener noreferrer" className="btn-reserve" data-gtm="reservation">ご予約はこちら</a>
+          <a href="#availability" className="btn-reserve" data-gtm="availability">空き枠を確認</a>
         </nav>
       </header>
 
@@ -683,6 +686,30 @@ export default function App() {
           <span className="section-title-en">ACCESS</span>
           <span className="section-title-jp">ご予約・アクセス</span>
         </div>
+        <div id="availability" className="availability">
+          <div className="reveal">
+            <h3 className="availability-title">空き枠カレンダー</h3>
+            <p className="availability-lead">
+              空き枠をご確認のうえ、ご希望の日時を公式LINEまたはお電話でお知らせください。
+            </p>
+            <div className="availability-frame">
+              <iframe
+                src={AVAILABILITY_CALENDAR_URL}
+                title="Sio groomingの空き枠カレンダー"
+                loading="lazy"
+                style={{ border: 0 }}
+              />
+            </div>
+            <a
+              href={AVAILABILITY_CALENDAR_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="availability-open-link"
+            >
+              Googleカレンダーで開く <span aria-hidden="true">›</span>
+            </a>
+          </div>
+        </div>
         <div className="access-inner">
           <div className="access-info">
             <div className="access-reserve reveal">
@@ -745,7 +772,7 @@ export default function App() {
             </table>
             <p className="access-calendar-note reveal">
               ※ 月・水・金は専門学校講師として勤務しておりますが、臨時で営業している場合もございます。<br />
-              詳しくはInstagram（@sio_grooming）の営業カレンダーをご確認ください。
+              詳しくは<a href="#availability" className="access-calendar-link" data-gtm="availability">空き枠カレンダー</a>をご確認ください。
             </p>
             <a href="/terms.html" className="terms-banner reveal">
               <span className="terms-banner-icon">
